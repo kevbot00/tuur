@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UpComingTuursList from './user-upcoming-tuurs-list';
+// import UpComingTuursList from './user-upcoming-tuurs-list';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
