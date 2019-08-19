@@ -103,7 +103,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div class="mobile-container">
         <Switch>
           <Route exact path="/login"
             render={props =>
