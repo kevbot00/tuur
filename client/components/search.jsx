@@ -17,6 +17,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 
 const theme = createMuiTheme({
   palette: {
+    // primary: { main: '#8FD0D6' },
     primary: { main: '#3A8288' },
     secondary: { main: '#5bd1d7' },
     lightBeige: { main: '#f1f1f1' },
@@ -69,6 +70,9 @@ const styles = theme => ({
     right: '11px',
     color: '#a49f9f',
     fontSize: '20px'
+  },
+  buttonMargin: {
+    margin: '.35em 0'
   }
 });
 
@@ -116,12 +120,8 @@ class Search extends Component {
     this.fetchPackages();
   }
 
-  componentDidUpdate(prevProps) {
-
-  }
-
   aboutUs() {
-    this.props.path('/about-us');
+    this.props.history.push('/about-us');
   }
   
   render() {
@@ -157,7 +157,7 @@ class Search extends Component {
     return (
       <div style={{ fontSize: 0 }}>
         {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
-        <img style={imgStyle} src="images/logo.png" alt="logo"/>
+        <img style={imgStyle} src="images/logo2.png" alt="logo"/>
         <div className={classes.aboutUs} component='a' onClick={this.aboutUs} ><MoreVert style={{ fontSize: '30px' }} /></div>
         <Card style={{ maxWidth: '100%' }} mt={0} className={classes.card}>
           <CardActionArea>
@@ -189,20 +189,12 @@ class Search extends Component {
             <Grid item xs={10}>
               <ThemeProvider theme={theme}>
                 <Button type="button" fullWidth variant="contained" color="primary" component='a' onClick={this.handleClick}>
-                  <Typography variant="body1" gutterBottom>Search</Typography>
+                  <Typography variant="body1" className={classes.buttonMargin}>Search</Typography>
                 </Button>
               </ThemeProvider>
             </Grid>
           </Grid>
         </Grid>
-        {/* <Typography variant="h5" align="center" className={classes.marginBottom2}>
-             Popular tuurs
-        </Typography>
-        <Grid style={{ height: '120px', width: '85%', margin: 'auto' }}>
-          <Slider {...settings} >
-            {packages}
-          </Slider>
-        </Grid> */}
       </div>
     );
   }

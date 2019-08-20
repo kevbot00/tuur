@@ -40,9 +40,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(0.5),
     fontSize: 33
   },
-  marginTop: {
-    marginTop: theme.spacing()
-  },
+  // marginTop: {
+  //   marginTop: theme.spacing()
+  // },
   marginBottom: {
     marginBottom: theme.spacing(3)
   },
@@ -173,7 +173,7 @@ function SimpleModal(props) {
             message={
               <Typography variant="button" id="message-id" > ✨ Please
                 <Button className={classes.btnColor} key="undo" style={{ textDecorationLine: 'underline' }} size="medium" component={Link} to={'/login'}>
-              Log in
+              Login
                 </Button>
               to book ✨</Typography>
             }

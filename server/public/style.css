@@ -1,17 +1,17 @@
 body {
   margin: 0;
-  width: 375px;
+  /* width: 375px;
   height: 812px;
   position: relative;
   left: 50%;
   transform: translateX( -50% );
-  border: 1px solid rgba(238, 237, 237, 0.961);
+  border: 1px solid rgba(238, 237, 237, 0.961); */
 }
-
+/* 
 .mobile-container {
   height: 812px;
   overflow: scroll;
-}
+} */
 
 .mapboxgl-popup-close-button {
   font-size: 70px;
