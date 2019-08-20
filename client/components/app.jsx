@@ -11,7 +11,7 @@ import UserViewProfile from './user-view-profile';
 import EditProfile from './user-edit-profile';
 import GuidePackages from './user-view-guide-profile';
 import SignUp from './sign-up';
-import CreatePackage from './createPackage';
+import CreatePackage from './create-package';
 import AboutUs from './about-us';
 
 class App extends Component {
@@ -35,6 +35,11 @@ class App extends Component {
     this.edit = this.edit.bind(this);
   }
 
+  componentDidMount() {
+    console.log( 'hit component app');
+
+  }
+
   logIn( user ) {
     this.setState({ user }, () => {
       this.props.history.push(
@@ -50,8 +55,9 @@ class App extends Component {
   }
 
   edit(user) {
+    console.log( 'user user', user );
     this.setState({ user }, () => this.props.history.push({
-      pathname: '/user-profile/' + user.email,
+      pathname: '/user-profile/' + user.id,
       state: { user }
     }));
   }
@@ -82,6 +88,8 @@ class App extends Component {
   }
 
   render() {
+    console.log( 'hit render app');
+
     return (
       <div className="mobile-container">
         <Switch>

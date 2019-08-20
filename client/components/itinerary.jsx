@@ -4,6 +4,7 @@ import ItineraryItem from './itinerary-package-item';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import ItineraryToggleButton from './itinerary-toggle';
+import { theme, styles } from '../style-themes';
 
 class Itinerary extends Component {
   constructor(props) {
@@ -106,7 +107,7 @@ class Itinerary extends Component {
     const { classes } = this.props;
     return (
       <>
-        <Container className={classes.marginBottom}>
+        <Container className={classes.marginBottomSpacingTwo}>
           <Typography className={classes.marginTop} variant="h4">
             Booked Tuurs
             {
@@ -143,13 +144,13 @@ class Itinerary extends Component {
   }
 }
 
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(2)
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(2)
+//   }
+// });
 
 export default withStyles(styles)(Itinerary);

@@ -6,37 +6,38 @@ import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/styles';
 import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import { Redirect, Link } from 'react-router-dom';
+import { theme, styles } from '../style-themes';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#5bd1d7' },
-    inherit: { main: '#f1f1f1' },
-    default: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#5bd1d7' },
+//     inherit: { main: '#f1f1f1' },
+//     default: { main: '#f5e1da' }
+//   }
+// });
 
-const imgStyle = {
-  width: '100%',
-  height: '70px',
-  backgroundRepeat: 'norepeat',
-  backgroundSize: '100% 100%',
-  '&:hover': {
-    opacity: 1
-  }
-};
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(4)
-  },
-  marginLeft: {
-    marginLeft: -5
-  },
-  margin: {
-    marginTop: theme.spacing(2),
-    marginLeft: theme.spacing(2)
-  }
-});
+// const imgStyle = {
+//   width: '100%',
+//   height: '70px',
+//   backgroundRepeat: 'norepeat',
+//   backgroundSize: '100% 100%',
+//   '&:hover': {
+//     opacity: 1
+//   }
+// };
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(4)
+//   },
+//   marginLeft: {
+//     marginLeft: -5
+//   },
+//   margin: {
+//     marginTop: theme.spacing(2),
+//     marginLeft: theme.spacing(2)
+//   }
+// });
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -81,38 +82,38 @@ class LogIn extends React.Component {
     <>
     <div style = {{ fontSize: 0 }}>
       {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
-      <img style={imgStyle} src="images/logo2.png" alt="logo"/>
+      <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo"/>
       <img style={{ width: '100%', height: '260px' }} src="https://cdn.pixabay.com/photo/2016/11/18/19/40/adventure-1836601_1280.jpg" alt="mainImage"/>
     </div>
       <Grid justify="center" alignItems="center" container>
-        <Typography className={classes.marginTop} variant="h4" gutterBottom>
+        <Typography className={classes.logInMarginTop} variant="h4" gutterBottom>
         Welcome back
         </Typography>
       </Grid>
-      <Grid className={classes.marginTop} container justify="center" alignItems="flex-end">
+      <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
         <Grid item xs={10}>
           <TextField onChange={this.handleInputChange} required fullWidth id="input-email" label="email" name="email" />
         </Grid>
       </Grid>
 
-      <Grid className={classes.marginTop} container justify="center" alignItems="flex-end">
+      <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
         <Grid item xs={8}>
           <ThemeProvider theme={theme}>
-            <Button type="submit" className={classes.marginTop} onClick={ this.handleSubmit } fullWidth variant="contained" color="primary">
+            <Button type="submit" className={classes.logInMarginTop} onClick={ this.handleSubmit } fullWidth variant="contained" color="primary">
               <Typography variant="body1" gutterBottom>log in</Typography>
             </Button>
           </ThemeProvider>
         </Grid>
       </Grid>
 
-      <Grid className={classes.marginTop} container justify="center" alignItems="flex-end">
+      <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
         <Grid item xs={7}>
           <Typography className={classes.margin} variant="button" gutterBottom align="center">
             Don't have an account? </Typography>
         </Grid>
         <Grid item xs={3}>
           <ThemeProvider theme={theme}>
-            <Typography className={classes.marginLeft} color="primary" variant="button" align="center" component={Link} style={{ textDecoration: 'none' }} to={'/sign-up'}>sign up</Typography>
+            <Typography className={classes.logInMarginLeft} color="primary" variant="button" align="center" component={Link} style={{ textDecoration: 'none' }} to={'/sign-up'}>sign up</Typography>
           </ThemeProvider>
         </Grid>
       </Grid>

@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import GuidePackages from './user-view-guide-profile';
 import { Link, withRouter } from 'react-router-dom';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import { theme, styles } from '../style-themes';
 
 
 class UserViewProfile extends Component {
@@ -73,7 +74,7 @@ class UserViewProfile extends Component {
         <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
           {this.state.name}
         </Typography>
-        <Typography className={classes.marginLeft} variant="subtitle1">
+        <Typography className={classes.userProfileMarginLeft} variant="subtitle1">
           {this.state.location}
         </Typography>
       </Container>
@@ -83,7 +84,7 @@ class UserViewProfile extends Component {
           justify="center"
           alignItems="center">
           <Grid item xs={4}>
-            <Avatar alt="avatar" src={this.state.image} className={classes.avatar} />
+            <Avatar alt="avatar" src={this.state.image} className={classes.userEditProfileAvatar} />
           </Grid>
           <Grid item xs={6}>
             <Typography variant="button">{this.state.bio}</Typography>
@@ -100,26 +101,26 @@ class UserViewProfile extends Component {
   }
 }
 
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  avatar: {
-    width: 80,
-    height: 80
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(3)
-  },
-  marginLeft: {
-    marginLeft: theme.spacing(2)
-  },
-  fontSize: {
-    fontSize: '2.5rem'
-  },
-  paddingRight: {
-    paddingRight: 20,
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   avatar: {
+//     width: 80,
+//     height: 80
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(3)
+//   },
+//   marginLeft: {
+//     marginLeft: theme.spacing(2)
+//   },
+//   fontSize: {
+//     fontSize: '2.5rem'
+//   },
+//   paddingRight: {
+//     paddingRight: 20,
+//   }
+// });
 
 export default withRouter(withStyles(styles)(UserViewProfile));

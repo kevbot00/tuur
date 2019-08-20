@@ -8,35 +8,35 @@ import SearchResultGuideItem from './search-result-guide-list-item';
 import TOKEN from './mapbox-token';
 import queryString from'query-string';
 import { Link, withRouter } from 'react-router-dom';
+import { theme, styles } from '../../style-themes';
 
-
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  cardContainer: {
-    marginBottom: theme.spacing(1),
-    display: 'flex',
-    padding: 10,
-    width: '40rem'
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(2)
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    margin: theme.spacing(1)
-  },
-  gridList: {
-    flexWrap: 'nowrap',
-    transform: 'translateZ(0)',
-    margin: theme.spacing(3),
-    height: 180
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   cardContainer: {
+//     marginBottom: theme.spacing(1),
+//     display: 'flex',
+//     padding: 10,
+//     width: '40rem'
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(2)
+//   },
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     justifyContent: 'space-around',
+//     overflow: 'hidden',
+//     margin: theme.spacing(1)
+//   },
+//   gridList: {
+//     flexWrap: 'nowrap',
+//     transform: 'translateZ(0)',
+//     margin: theme.spacing(3),
+//     height: 180
+//   }
+// });
 
 class SearchResultGuide extends Component {
   constructor(props) {
@@ -139,7 +139,7 @@ class SearchResultGuide extends Component {
             Meet the Tuur Guides
             </Typography>
           </Container>
-          <div className={classes.root}>
+          <div className={classes.searchResultGuideListRoot}>
             <GridList className={classes.gridList} cols={1.5} cellHeight={300}>
               { this.state.filteredGuides.length === 0 
                 ? <Typography variant="subtitle1">There are no guides that match the search criteria</Typography> 

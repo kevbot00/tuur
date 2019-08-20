@@ -8,16 +8,17 @@ import TOKEN from './mapbox-token';
 import queryString from'query-string';
 import { Link, withRouter } from 'react-router-dom';
 import { filter } from 'minimatch';
+import { theme, styles } from '../../style-themes';
 
 
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(2)
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(2)
+//   }
+// });
 
 class SearchPackages extends Component {
   constructor(props) {

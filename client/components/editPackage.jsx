@@ -13,6 +13,7 @@ import Chip from '@material-ui/core/Chip';
 import CalendarToday from '@material-ui/icons/CalendarToday';
 import { ThemeProvider } from '@material-ui/styles';
 import { withStyles, createMuiTheme } from '@material-ui/core/styles';
+import { theme, styles } from '../style-themes';
 
 const theme = createMuiTheme({
   palette: {
@@ -75,7 +76,7 @@ const categories = [
   'Activities'
 ];
 
-class CreatePackage extends Component {
+class EditPackage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -260,4 +261,4 @@ class CreatePackage extends Component {
   }
 }
 
-export default withStyles(styles)(CreatePackage);
+export default withStyles(styles)(EditPackage);

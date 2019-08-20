@@ -13,68 +13,69 @@ import { Link } from 'react-router-dom';
 import MoreVert from '@material-ui/icons/MoreVert';
 import { generateKeyPair } from 'crypto';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import { theme, styles } from '../style-themes';
 
 
-const theme = createMuiTheme({
-  palette: {
-    // primary: { main: '#8FD0D6' },
-    primary: { main: '#3A8288' },
-    secondary: { main: '#5bd1d7' },
-    lightBeige: { main: '#f1f1f1' },
-    beige: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     // primary: { main: '#8FD0D6' },
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#5bd1d7' },
+//     lightBeige: { main: '#f1f1f1' },
+//     beige: { main: '#f5e1da' }
+//   }
+// });
 
-const imgStyle = {
-  width: '100%',
-  height: '70px',
-  backgroundRepeat: 'norepeat',
-  backgroundSize: '100% 100%',
-  '&:hover': {
-    opacity: 1
-  }
-};
+// const imgStyle = {
+//   width: '100%',
+//   height: '70px',
+//   backgroundRepeat: 'norepeat',
+//   backgroundSize: '100% 100%',
+//   '&:hover': {
+//     opacity: 1
+//   }
+// };
 
-const styles = theme => ({
-  card: {
-    maxWidth: 370
-  },
-  media: {
-    height: 350
-  },
-  marginTop: {
-    marginTop: theme.spacing(8)
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(4)
-  },
-  marginBottom2: {
-    marginBottom: theme.spacing(2)
-  },
-  tile: {
-    width: 200,
-    height: '100%'
-  },
-  font: {
-    fontFamily: 'Roboto',
-    fontSize: '1.3rem',
-    marginRight: theme.spacing(1)
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
-  },
-  aboutUs: {
-    position: 'absolute',
-    top: 20,
-    right: '11px',
-    color: '#a49f9f',
-    fontSize: '20px'
-  },
-  buttonMargin: {
-    margin: '.35em 0'
-  }
-});
+// const styles = theme => ({
+//   card: {
+//     maxWidth: 370
+//   },
+//   media: {
+//     height: 350
+//   },
+//   marginTop: {
+//     marginTop: theme.spacing(8)
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(4)
+//   },
+//   marginBottom2: {
+//     marginBottom: theme.spacing(2)
+//   },
+//   tile: {
+//     width: 200,
+//     height: '100%'
+//   },
+//   font: {
+//     fontFamily: 'Roboto',
+//     fontSize: '1.3rem',
+//     marginRight: theme.spacing(1)
+//   },
+//   titleBar: {
+//     background:
+//       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
+//   },
+//   aboutUs: {
+//     position: 'absolute',
+//     top: 20,
+//     right: '11px',
+//     color: '#a49f9f',
+//     fontSize: '20px'
+//   },
+//   buttonMargin: {
+//     margin: '.35em 0'
+//   }
+// });
 
 class Search extends Component {
   constructor(props) {
@@ -147,29 +148,26 @@ class Search extends Component {
       packages = this.state.package.map((article, index) => {
         return (
           <Grid key={index} component={Link} to={{ pathname: '/package-details/' + article.id, state: { item: article } }}>
-
             <img src={article.mainImage} alt={article.title} style={{ height: '120px', width: '100%', border: '6px solid white' }} />
-
           </Grid>
         );
       });
     }
     return (
       <div style={{ fontSize: 0 }}>
-        {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
-        <img style={imgStyle} src="images/logo2.png" alt="logo"/>
+        <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo"/>
         <div className={classes.aboutUs} component='a' onClick={this.aboutUs} ><MoreVert style={{ fontSize: '30px' }} /></div>
-        <Card style={{ maxWidth: '100%' }} mt={0} className={classes.card}>
+        <Card style={{ maxWidth: '100%' }} mt={0} className={classes.searchCard}>
           <CardActionArea>
             <CardMedia
-              className={classes.media}
+              className={classes.searchMedia}
               component="img"
               image="https://chopra.com/sites/default/files/field/image/6reasonswhytravelingisgoodforyou.jpg"
               title="Travel Image"
             />
           </CardActionArea>
         </Card>
-        <Grid justify="center" className={classes.marginTop} container>
+        <Grid justify="center" className={classes.searchMarginTop} container>
           <Grid item xs={10}>
             <MatGeocoder
               inputPlaceholder="Where do you want to go?"
@@ -184,12 +182,12 @@ class Search extends Component {
           </Grid>
         </Grid>
 
-        <Grid justify="center" container className={classes.marginBottom} >
-          <Grid className={classes.marginTop} container justify="center" >
+        <Grid justify="center" container className={classes.searchMarginBottom} >
+          <Grid className={classes.searchMarginTop} container justify="center" >
             <Grid item xs={10}>
               <ThemeProvider theme={theme}>
                 <Button type="button" fullWidth variant="contained" color="primary" component='a' onClick={this.handleClick}>
-                  <Typography variant="body1" className={classes.buttonMargin}>Search</Typography>
+                  <Typography variant="body1" className={classes.searchMarginBottom}>Search</Typography>
                 </Button>
               </ThemeProvider>
             </Grid>

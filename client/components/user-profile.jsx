@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Link, withRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
+import { theme, styles } from '../style-themes';
+
 
 class UserProfile extends Component {
   constructor(props) {
@@ -49,6 +51,7 @@ class UserProfile extends Component {
 
   render() {
     const { classes } = this.props;
+    console.log( this.state, 'app')
     if (!this.state.user) {
       return null;
     }
@@ -58,7 +61,7 @@ class UserProfile extends Component {
           <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
             {this.state.user.name}
           </Typography>
-          <Typography className={classes.marginLeft} variant="subtitle1">
+          <Typography className={classes.userProfileMarginLeft} variant="subtitle1">
             {this.state.user.location}
           </Typography>
         </Container>
@@ -68,7 +71,7 @@ class UserProfile extends Component {
             justify="center"
             alignItems="center">
             <Grid item xs={4}>
-              <Avatar alt="avatar" src={this.state.user.image} className={classes.avatar} />
+              <Avatar alt="avatar" src={this.state.user.image} className={classes.userEditProfileAvatar} />
             </Grid>
             <Grid item xs={6}>
               <ThemeProvider theme={theme}>
@@ -101,33 +104,33 @@ class UserProfile extends Component {
   }
 }
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#5bd1d7' },
-    lightBeige: { main: '#f1f1f1' },
-    beige: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#5bd1d7' },
+//     lightBeige: { main: '#f1f1f1' },
+//     beige: { main: '#f5e1da' }
+//   }
+// });
 
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  avatar: {
-    width: 80,
-    height: 80
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(3)
-  },
-  marginLeft: {
-    marginLeft: theme.spacing(2)
-  },
-  buttonCreate: {
-    color: 'white',
-    marginTop: 7
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   avatar: {
+//     width: 80,
+//     height: 80
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(3)
+//   },
+//   marginLeft: {
+//     marginLeft: theme.spacing(2)
+//   },
+//   buttonCreate: {
+//     color: 'white',
+//     marginTop: 7
+//   }
+// });
 
 export default withRouter( withStyles(styles)(UserProfile) );

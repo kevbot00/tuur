@@ -9,6 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { Link } from 'react-router-dom';
+import { theme, styles } from '../style-themes';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -26,45 +27,45 @@ function getModalStyle() {
   };
 }
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#5bd1d7' },
-    lightBeige: { main: '#f1f1f1' },
-    beige: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#5bd1d7' },
+//     lightBeige: { main: '#f1f1f1' },
+//     beige: { main: '#f5e1da' }
+//   }
+// });
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    margin: theme.spacing(0.5),
-    fontSize: 33
-  },
-  // marginTop: {
-  //   marginTop: theme.spacing()
-  // },
-  marginBottom: {
-    marginBottom: theme.spacing(3)
-  },
-  marginLeft: {
-    marginLeft: -17
-  },
-  paper: {
-    position: 'absolute',
-    width: 325,
-    height: 150,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2),
-    outline: 'none'
-  },
-  snackbar: {
-    backgroundColor: '#3A8288'
-  },
-  btnColor: {
-    color: '#48dbfb'
-  }
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     margin: theme.spacing(0.5),
+//     fontSize: 33
+//   },
+//   // marginTop: {
+//   //   marginTop: theme.spacing()
+//   // },
+//   marginBottom: {
+//     marginBottom: theme.spacing(3)
+//   },
+//   marginLeft: {
+//     marginLeft: -17
+//   },
+//   paper: {
+//     position: 'absolute',
+//     width: 325,
+//     height: 150,
+//     backgroundColor: theme.palette.background.paper,
+//     boxShadow: theme.shadows[5],
+//     padding: theme.spacing(2),
+//     outline: 'none'
+//   },
+//   snackbar: {
+//     backgroundColor: '#3A8288'
+//   },
+//   btnColor: {
+//     color: '#48dbfb'
+//   }
+// }));
 
 function SimpleModal(props) {
   const [open, setOpen] = React.useState(false);
@@ -128,7 +129,9 @@ function SimpleModal(props) {
           open={open}
           onClose={handleClose}
         >
-          <div style={modalStyle} className={classes.paper}>
+          <div 
+          // style={modalStyle} 
+          className={classes.paper}>
             <Typography className={classes.marginBottom} variant="h5" id="modal-title" color="primary" align="center">
             Booking Confirmation
             </Typography>
@@ -150,7 +153,7 @@ function SimpleModal(props) {
               <br/>
               { bookingDates() }
             </Typography>
-            <Button type="button" className={classes.margin} fullWidth variant="contained" color="primary" onClick={handleClose}>
+            <Button type="button" className={classes.root} fullWidth variant="contained" color="primary" onClick={handleClose}>
               <Typography variant="body1" gutterBottom>Close</Typography>
             </Button>
           </div>

@@ -11,45 +11,45 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import { Link, withRouter, Route } from 'react-router-dom';
-import Modal from '@material-ui/core/Modal';
 import SimpleModal from '../book-modal';
+import { theme, styles } from '../../style-themes';
 
-const styles = theme => ({
-  root: {
-    margin: theme.spacing(0.5),
-    fontSize: 33
-  },
-  // marginTop: {
-  //   marginTop: theme.spacing()
-  // },
-  marginBottom: {
-    marginBottom: theme.spacing(3)
-  },
-  marginLeft: {
-    marginLeft: -17
-  },
-  fontSize: {
-    fontSize: '2.5rem'
-  },
-  paddingRight: {
-    paddingRight: 20
-  },
-  paddingLeft: {
-    paddingLeft: 20
-  },
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(4),
-    outline: 'none'
-  },
-  calender: {
-    fontWeight: 'bolder',
-    marginBottom: theme.spacing(3)
-  }
-});
+// const styles = theme => ({
+//   root: {
+//     margin: theme.spacing(0.5),
+//     fontSize: 33
+//   },
+//   marginTop: {
+//     marginTop: theme.spacing()
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(3)
+//   },
+//   marginLeft: {
+//     marginLeft: -17
+//   },
+//   fontSize: {
+//     fontSize: '2.5rem'
+//   },
+//   paddingRight: {
+//     paddingRight: 20
+//   },
+//   paddingLeft: {
+//     paddingLeft: 20
+//   },
+//   paper: {
+//     position: 'absolute',
+//     width: 400,
+//     backgroundColor: theme.palette.background.paper,
+//     boxShadow: theme.shadows[5],
+//     padding: theme.spacing(4),
+//     outline: 'none'
+//   },
+//   calender: {
+//     fontWeight: 'bolder',
+//     marginBottom: theme.spacing(3)
+//   }
+// });
 
 class DatePicker extends Component {
   constructor(props) {
@@ -101,14 +101,15 @@ class DatePicker extends Component {
 
     const MultipleDatesCalendar = withMultipleDates(Calendar);
     const { classes } = this.props;
+    console.log( this.props )
     return (
-      <div className={classes.root}>
+      <div className={styles.root}>
         <Grid justify="center" alignItems="center" container>
-          <Grid item xs={2} className={classes.paddingRight} onClick={() => this.props.modalClose()}>
-            <KeyboardArrowLeft className={classes.fontSize} />
+          <Grid item xs={2} className={styles.paddingRight} onClick={() => this.props.modalClose()}>
+            <KeyboardArrowLeft className={styles.fontSize} />
           </Grid>
-          <Grid item xs={10} className={classes.paddingLeft}>
-            <Typography className={classes.marginTop} variant="h4" gutterBottom>
+          <Grid item xs={10} className={styles.paddingLeft}>
+            <Typography className={styles.marginTop} variant="h4" gutterBottom>
               Select dates
             </Typography>
           </Grid>
@@ -125,17 +126,17 @@ class DatePicker extends Component {
           minDate={new Date(this.nextDay())}
           maxDate={this.props.unavailableDates.maxDate}
           disabledDates={(this.props.unavailableDates) ? this.props.unavailableDates.disabledList : null}
-          className={classes.calender}
+          className={styles.calender}
 
           />
     
-        <Grid className={classes.marginLeft} justify="center" alignItems="center" container>
+        <Grid className={styles.marginLeft} justify="center" alignItems="center" container>
           <Grid item xs={7} >
             {this.props.unavailableDates.disabledList
               ? <div>
                 <SimpleModal item={item} booking={this.handleBooking} dates={this.state.dates} loggedIn={this.props.item.package.status} />
               </div>
-              : <Button onClick={this.handleSubmit} type="button" className={classes.margin} fullWidth variant="contained" color="primary">
+              : <Button onClick={this.handleSubmit} type="button" className={styles.margin} fullWidth variant="contained" color="primary">
                 <Typography variant="body1" gutterBottom>Select Dates</Typography>
               </Button>
             }

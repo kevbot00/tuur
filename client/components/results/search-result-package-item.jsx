@@ -11,23 +11,24 @@ import ShareIcon from '@material-ui/icons/Share';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { theme, styles } from '../../style-themes';
 
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(2)
-  },
-  card: {
-    maxWidth: 400,
-    marginBottom: theme.spacing(0.5)
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%'
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(2)
+//   },
+//   card: {
+//     maxWidth: 400,
+//     marginBottom: theme.spacing(0.5)
+//   },
+//   media: {
+//     height: 0,
+//     paddingTop: '56.25%'
+//   }
+// });
 
 class SearchPackageItem extends Component {
   constructor(props) {

@@ -22,6 +22,7 @@ import Add from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Button from '@material-ui/core/Button';
 import MatGeocoder from 'react-mui-mapbox-geocoder';
+import { theme, styles } from '../style-themes';
 
 class CreatePackage extends Component {
   constructor(props) {
@@ -215,7 +216,7 @@ class CreatePackage extends Component {
         </Typography>
         <Grid mx="auto" container component="form" justify="center" onSubmit={this.handleSubmit}>
 
-          <Grid className={classes.margin} container alignItems="flex-end" justify="center">
+          <Grid className={classes.root} container alignItems="flex-end" justify="center">
             <Grid item xs={10}>
               <TextField required helperText={this.state.inputErrors.title ? 'Must include a title' : ' '} error={this.state.inputErrors.title} fullWidth id="input-title" label="Title" name="title" onChange={this.handleInputChange} text={this.state.name} />
             </Grid>
@@ -225,7 +226,7 @@ class CreatePackage extends Component {
               <TextField required helperText={this.state.inputErrors.location ? 'Please provide a location' : ' '} error={this.state.inputErrors.location} fullWidth id="input-location" label="Location" name="location" onChange={this.handleInputChange} />
             </Grid>
           </Grid> */}
-          <Grid justify="center" className={classes.margin} container alignItems="flex-end" justify="center">
+          <Grid justify="center" className={classes.root} container alignItems="flex-end" justify="center">
             <Grid item xs={10}>
               <MatGeocoder
                 inputPlaceholder="Location"
@@ -242,7 +243,7 @@ class CreatePackage extends Component {
             </Grid>
           </Grid>
 
-          <Grid className={classes.margin} container alignItems="flex-end" justify="center">
+          <Grid className={classes.root} container alignItems="flex-end" justify="center">
             <Grid item xs={10} >
               <FormControl className={classes.form}>
                 <InputLabel htmlFor="input-image" required>
@@ -259,30 +260,30 @@ class CreatePackage extends Component {
           </Grid>
 
           <Grid container justify="center" direction="row">
-            <div style={divStyle} className="preview" onClick={this.removeImage}>
-              <img id="0" style={imgStyle} src={this.state.imageUrl ? this.state.imageUrl[0] : null} alt="" />
+            <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
+              <img id="0" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[0] : null} alt="" />
             </div>
-            <div style={divStyle} className="preview" onClick={this.removeImage}>
-              <img id="1" style={imgStyle} src={this.state.imageUrl ? this.state.imageUrl[1] : null} alt="" />
+            <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
+              <img id="1" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[1] : null} alt="" />
             </div>
-            <div style={divStyle} className="preview" onClick={this.removeImage}>
-              <img id="2" style={imgStyle} src={this.state.imageUrl ? this.state.imageUrl[2] : null} alt="" />
+            <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
+              <img id="2" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[2] : null} alt="" />
             </div>
-            <div style={divStyle} className="preview" onClick={this.removeImage}>
-              <img id="3" style={imgStyle} src={this.state.imageUrl ? this.state.imageUrl[3] : null} alt="" />
+            <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
+              <img id="3" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[3] : null} alt="" />
             </div>
             <IconButton aria-label="add" className={classes.noPadding} onClick={this.iconClickhandler}>
               <AddCircleOutline style={{ fontSize: 40 }} />
             </IconButton>
           </Grid>
 
-          <Grid className={classes.margin} container alignItems="flex-end" justify="center">
+          <Grid className={classes.root} container alignItems="flex-end" justify="center">
             <Grid item xs={10}>
               <TextField required helperText={this.state.inputErrors.timeRange ? 'Please provide duration of tuur' : ' '} error={this.state.inputErrors.timeRange} fullWidth id="input-timeRange" label="Tuur Duration (Time range)" name="timeRange" onChange={this.handleInputChange} />
             </Grid>
           </Grid>
 
-          <Grid className={classes.margin} container alignItems="flex-end" justify="center">
+          <Grid className={classes.root} container alignItems="flex-end" justify="center">
             <Grid item xs={10}>
               <TextField
                 id='outlined-textarea'
@@ -293,15 +294,15 @@ class CreatePackage extends Component {
                 multiline
                 fullWidth
                 rowsMax={3}
-                className={classes.textField}
+                className={classes.createPackageTextField}
                 name="description"
                 onChange={this.handleInputChange}
               />
             </Grid>
           </Grid>
 
-          <Grid className={classes.margin} container alignItems="flex-end">
-            <Grid item xs={6} className={classes.marginLeft}>
+          <Grid className={classes.root} container alignItems="flex-end">
+            <Grid item xs={6} className={classes.createPackageMarginLeft}>
               <Typography className={classes.subtitle} variant="subtitle2" align="left" gutterBottom>
                 Available Dates
               </Typography>
@@ -317,7 +318,7 @@ class CreatePackage extends Component {
                 open={this.state.openModal}
                 onClose={() => this.handleModalClose(this.state.dates)}
               >
-                <Grid className={classes.paper}>
+                <Grid className={classes.createPackagePaper}>
                   <DatePicker key={this.state.title} dates={this.state.dates} close={this.handleModalClose} modalClose={this.modalClose} unavailableDates={this.maxDate()} />
 
                 </Grid>
@@ -343,7 +344,7 @@ class CreatePackage extends Component {
             })}
           </div>
 
-          <Grid className={classes.margin} style={{ marginBottom: '30px' }} container alignItems="flex-end" justify="center">
+          <Grid className={classes.root} style={{ marginBottom: '30px' }} container alignItems="flex-end" justify="center">
             <div className={classes.root}>
               <FormControl className={classes.formControl}>
                 <InputLabel htmlFor="select-multiple-chip" required>
@@ -420,114 +421,114 @@ class CreatePackage extends Component {
   }
 }
 
-const divStyle = {
-  width: '47px',
-  height: '40px',
-  border: '1px solid gray',
-  marginRight: '5px'
-};
+// const divStyle = {
+//   width: '47px',
+//   height: '40px',
+//   border: '1px solid gray',
+//   marginRight: '5px'
+// };
 
-const imgStyle = {
-  width: '100%',
-  height: '100%',
-  backgroundRepeat: 'norepeat',
-  backgroundSize: '100% 100%'
-};
+// const imgStyle = {
+//   width: '100%',
+//   height: '100%',
+//   backgroundRepeat: 'norepeat',
+//   backgroundSize: '100% 100%'
+// };
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#A6C7C8' },
-    inherit: { main: '#A0C3C5' },
-    default: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#A6C7C8' },
+//     inherit: { main: '#A0C3C5' },
+//     default: { main: '#f5e1da' }
+//   }
+// });
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap'
-  },
-  margin: {
-    margin: theme.spacing(0.5),
-    fontSize: 33
-  },
-  textField: {
-    marginRight: theme.spacing(1),
-    width: '100%'
-  },
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  paddingTop: {
-    paddingTop: theme.spacing(5)
-  },
-  noPadding: {
-    padding: 2
-  },
-  marginLeft: {
-    marginLeft: theme.spacing(4),
-    marginTop: theme.spacing(1)
-  },
-  chip: {
-    width: '31%',
-    fontSize: '1rem',
-    margin: '2px'
-  },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 276,
-    maxWidth: 276
-  },
-  subtitle: {
-    fontSize: 20
-  },
-  modalStyle: {
-    top: 5,
-    left: 5
-  },
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: 7,
-    outline: 'none'
-  },
-  input: {
-    width: '100%'
-  },
-  form: {
-    width: '100%'
-  },
-  dateChip: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    width: 40,
-    marginRight: '4px',
-    marginBottom: '4px'
-  },
-  close: {
-    padding: theme.spacing(2)
-  },
-  info: {
-    backgroundColor: theme.palette.primary.dark
-  },
-  fab: {
-    margin: theme.spacing(1),
-    right: 20,
-    bottom: '77px',
-    position: 'fixed'
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1)
-  }
-});
+// const styles = theme => ({
+//   root: {
+//     display: 'flex',
+//     justifyContent: 'center',
+//     flexWrap: 'wrap'
+//   },
+//   margin: {
+//     margin: theme.spacing(0.5),
+//     fontSize: 33
+//   },
+//   textField: {
+//     marginRight: theme.spacing(1),
+//     width: '100%'
+//   },
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   paddingTop: {
+//     paddingTop: theme.spacing(5)
+//   },
+//   noPadding: {
+//     padding: 2
+//   },
+//   marginLeft: {
+//     marginLeft: theme.spacing(4),
+//     marginTop: theme.spacing(1)
+//   },
+//   chip: {
+//     width: '31%',
+//     fontSize: '1rem',
+//     margin: '2px'
+//   },
+//   chips: {
+//     display: 'flex',
+//     flexWrap: 'wrap'
+//   },
+//   formControl: {
+//     margin: theme.spacing(1),
+//     minWidth: 276,
+//     maxWidth: 276
+//   },
+//   subtitle: {
+//     fontSize: 20
+//   },
+//   modalStyle: {
+//     top: 5,
+//     left: 5
+//   },
+//   paper: {
+//     position: 'absolute',
+//     width: 400,
+//     backgroundColor: theme.palette.background.paper,
+//     boxShadow: theme.shadows[5],
+//     padding: 7,
+//     outline: 'none'
+//   },
+//   input: {
+//     width: '100%'
+//   },
+//   form: {
+//     width: '100%'
+//   },
+//   dateChip: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     width: 40,
+//     marginRight: '4px',
+//     marginBottom: '4px'
+//   },
+//   close: {
+//     padding: theme.spacing(2)
+//   },
+//   info: {
+//     backgroundColor: theme.palette.primary.dark
+//   },
+//   fab: {
+//     margin: theme.spacing(1),
+//     right: 20,
+//     bottom: '77px',
+//     position: 'fixed'
+//   },
+//   extendedIcon: {
+//     marginRight: theme.spacing(1)
+//   }
+// });
 
 const categories = [
   'Food',

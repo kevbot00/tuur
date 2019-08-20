@@ -9,44 +9,46 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { theme, styles } from '../style-themes';
 
-const styles = theme => ({
-  card: {
-    display: 'flex',
-    height: '150px',
-    marginBottom: theme.spacing(1.5),
-    width: '89%'
-  },
-  cover: {
-    width: '100%',
-    height: '100%',
-    margin: 0
-  },
-  content: {
-    flex: '1 0 auto'
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  padding: {
-    padding: 0
-  },
-  title: {
-    margin: theme.spacing(3)
-  },
-  back: {
-    position: 'absolute',
-    top: 20,
-    left: '16px',
-    color: '#a49f9f',
-    fontSize: '20px'
-  },
-  icon:{
-    fontSize: '26px',
-    color: '#3A8288'
-  }
-});
+
+// const styles = theme => ({
+//   card: {
+//     display: 'flex',
+//     height: '150px',
+//     marginBottom: theme.spacing(1.5),
+//     width: '89%'
+//   },
+//   cover: {
+//     width: '100%',
+//     height: '100%',
+//     margin: 0
+//   },
+//   content: {
+//     flex: '1 0 auto'
+//   },
+//   details: {
+//     display: 'flex',
+//     flexDirection: 'column'
+//   },
+//   padding: {
+//     padding: 0
+//   },
+//   title: {
+//     margin: theme.spacing(3)
+//   },
+//   back: {
+//     position: 'absolute',
+//     top: 20,
+//     left: '16px',
+//     color: '#a49f9f',
+//     fontSize: '20px'
+//   },
+//   icon:{
+//     fontSize: '26px',
+//     color: '#3A8288'
+//   }
+// });
 
 function AboutUs(props) {
   const { classes } = props;
