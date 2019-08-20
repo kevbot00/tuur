@@ -157,7 +157,7 @@ class Search extends Component {
       <div style={{ fontSize: 0 }}>
         <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo"/>
         <div className={classes.aboutUs} component='a' onClick={this.aboutUs} ><MoreVert style={{ fontSize: '30px' }} /></div>
-        <Card style={{ maxWidth: '100%' }} mt={0} className={classes.searchCard}>
+        {/* <Card style={{ maxWidth: '100%' }} mt={0} className={classes.searchCard}>
           <CardActionArea>
             <CardMedia
               className={classes.searchMedia}
@@ -166,7 +166,9 @@ class Search extends Component {
               title="Travel Image"
             />
           </CardActionArea>
-        </Card>
+        </Card> */}
+        <img style={{ width: '100%', height: '260px' }} src="images/search-main-image.jpg" alt="mainImage"/>
+
         <Grid justify="center" className={classes.searchMarginTop} container>
           <Grid item xs={10}>
             <MatGeocoder

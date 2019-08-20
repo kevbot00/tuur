@@ -83,7 +83,7 @@ class LogIn extends React.Component {
     <div style = {{ fontSize: 0 }}>
       {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
       <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo"/>
-      <img style={{ width: '100%', height: '260px' }} src="https://cdn.pixabay.com/photo/2016/11/18/19/40/adventure-1836601_1280.jpg" alt="mainImage"/>
+      <img style={{ width: '100%', height: '260px' }} src="images/login-main-image.jpg" alt="mainImage"/>
     </div>
       <Grid justify="center" alignItems="center" container>
         <Typography className={classes.logInMarginTop} variant="h4" gutterBottom>

@@ -533,7 +533,7 @@ export const styles = theme => ({
     maxWidth: 370
   },
   searchMedia: {
-    height: 350
+    height: 260
   },
   searchMarginTop: {
     marginTop: theme.spacing(8)
