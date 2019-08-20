@@ -98,9 +98,9 @@ class ItineraryItem extends Component {
               {description}
             </Typography>
           </CardContent>
-          <CardActions className={classes.detail} style={{ paddingLeft: '52%' }}>
+          <CardActions style={{ justifyContent: 'flex-end' }}>
             <ThemeProvider theme={theme}>
-              <Typography className={classes.detail} variant="button" color="primary" align="right">
+              <Typography  variant="button" color="primary">
                 More detail
               </Typography>
             </ThemeProvider>

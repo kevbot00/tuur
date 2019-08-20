@@ -289,7 +289,7 @@ class CreatePackage extends Component {
             <Grid item xs={10}>
               <TextField
                 id='outlined-textarea'
-                label='Describe the Tuur (150 characters)'
+                label='Description (150 characters)'
                 required
                 helperText={this.state.inputErrors.description ? 'Please enter a short description about the tuur' : ' '}
                 error={this.state.inputErrors.description}

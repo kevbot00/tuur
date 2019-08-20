@@ -488,7 +488,8 @@ export const styles = theme => ({
     })
   },
   datail: {
-    paddingLeft: '54%'
+    paddingLeft: '54%',
+    textAlign: 'right'
   },
 
   // itinerary

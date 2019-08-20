@@ -11,6 +11,7 @@ body {
 .mobile-container {
   height: 812px;
   overflow: scroll;
+  background-color: rgba(237, 237, 237, 0.899);
 }
 
 .mapboxgl-popup-close-button {
