@@ -10,7 +10,6 @@ if ( isset( $_GET['logout'] ) && $_GET['logout'] ){
   print_r( json_encode( ['status' => true ]));
   exit();
 }
-
 if ( isset($_SESSION['userEmail']) ){
   print_r( json_encode( ['isGuide' => $_SESSION['isGuide'], 'userEmail' => $_SESSION['userEmail'], 'id' => $_SESSION['id'], 'loggedIn' => true]));
 } else {

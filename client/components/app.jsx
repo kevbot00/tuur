@@ -35,11 +35,6 @@ class App extends Component {
     this.edit = this.edit.bind(this);
   }
 
-  componentDidMount() {
-    console.log( 'hit component app');
-
-  }
-
   logIn( user ) {
     this.setState({ user }, () => {
       this.props.history.push(
@@ -55,7 +50,6 @@ class App extends Component {
   }
 
   edit(user) {
-    console.log( 'user user', user );
     this.setState({ user }, () => this.props.history.push({
       pathname: '/user-profile/' + user.id,
       state: { user }
@@ -88,8 +82,6 @@ class App extends Component {
   }
 
   render() {
-    console.log( 'hit render app');
-
     return (
       <div className="mobile-container">
         <Switch>
@@ -159,7 +151,7 @@ class App extends Component {
                 isAuthed={true}
               />
           }/>
-          <Route path="/create-package"
+          <Route path="/create-package/:id"
             render={props => 
               <CreatePackage {...props} 
                 packages={this.state.user} 

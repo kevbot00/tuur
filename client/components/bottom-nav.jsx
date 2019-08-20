@@ -8,17 +8,6 @@ import CardTravel from '@material-ui/icons/CardTravel';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { theme, styles } from '../style-themes';
 
-// const styles = theme => ({
-//   root: {
-//     width: '100%',
-//     position: 'fixed',
-//     bottom: 0,
-//     padding: '7px 0',
-//     zIndex: '100',
-//     borderTop: '1px solid #bbbbbb75'
-//   }
-// });
-
 class BottomNav extends Component {
   constructor(props) {
     super(props);
@@ -83,7 +72,17 @@ class BottomNav extends Component {
       </BottomNavigation>
     );
   }
-
 }
+
+// const styles = theme => ({
+//   root: {
+//     width: '100%',
+//     position: 'fixed',
+//     bottom: 0,
+//     padding: '7px 0',
+//     zIndex: '100',
+//     borderTop: '1px solid #bbbbbb75'
+//   }
+// });
 
 export default withRouter(withStyles(styles)(BottomNav));

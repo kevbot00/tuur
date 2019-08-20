@@ -101,7 +101,6 @@ class DatePicker extends Component {
 
     const MultipleDatesCalendar = withMultipleDates(Calendar);
     const { classes } = this.props;
-    console.log( this.props )
     return (
       <div className={styles.root}>
         <Grid justify="center" alignItems="center" container>

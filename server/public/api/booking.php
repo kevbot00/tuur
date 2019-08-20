@@ -11,20 +11,17 @@ if ( isset( $_SESSION['userEmail']) || isset($_SESSION['id']) ){
   $tuuristId = $_SESSION['id'];
 }
 
-
 if ( $method === "POST"){
   $output = json_decode( $item , true );
   $pickedDates = json_encode( $output['dates']);
   $query = "INSERT INTO  `booking` (`id`, `tuuristId`, `packageId`, `bookedAt`, `dates`, `tuuristEmail`) 
             VALUES (NULL, '{$tuuristId}', '{$output['packageId']}', CURRENT_TIMESTAMP, '{$pickedDates}', '{$email}')";
   $result = mysqli_query( $conn, $query );
-
   if ( $result ){
     $getQuery = "SELECT `dates` from `package` WHERE `id` = {$output['packageId']}";
     $getResult = mysqli_query( $conn, $getQuery );
     $date = mysqli_fetch_assoc( $getResult );
 
-    
     $string = str_replace( "[", "", $pickedDates );
     $string = str_replace( "]", "", $string );
     $pickedDates = explode( "," , $string );
@@ -37,7 +34,6 @@ if ( $method === "POST"){
     foreach( $packageDates as $value ){
       $packageDateArray[] = trim( $value );
     }
-
     for ( $pickCount = 0; $pickCount < count( $pickedDateArray ); $pickCount++ ){
       for ( $packCount = 0; $packCount < count( $packageDateArray ); $packCount++ ){
         if ( $pickedDateArray[ $pickCount ] === $packageDateArray[$packCount] ){
@@ -45,7 +41,6 @@ if ( $method === "POST"){
         }
       }
     }
-    // print_r( json_encode( ['auth' => $result]));
   }
   $packageDates = join( ',', $packageDates );
   $updateQuery = "UPDATE `package`
@@ -54,6 +49,7 @@ if ( $method === "POST"){
   $updateResult = mysqli_query( $conn , $updateQuery );
   print_r ( json_encode( ['auth' => $result ]));
 }
+
 if ( $method === "GET"){
   if ( isset( $_GET['id'] ) ){
     $bookedPackageQuery = "SELECT `book`.packageId, `pack`.title, `pack`.description, `pack`.tags, `pack`.location, `pack`.timeRange ,

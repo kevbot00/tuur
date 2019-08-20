@@ -99,7 +99,6 @@ class Itinerary extends Component {
   }
 
   render() {
-    console.log(this.state)
     let currentState;
     if (this.state.auth.loggedIn) {
       currentState = this.state.auth.isGuide;

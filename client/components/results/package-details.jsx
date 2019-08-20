@@ -157,7 +157,6 @@ class PackageDetails extends Component {
   }
 
   componentDidMount() {
-    console.log( 'package details')
     const id = this.props.match.params.id;
     fetch('/api/package.php?id=' + id)
       .then(res => res.json())

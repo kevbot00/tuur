@@ -187,7 +187,7 @@ class Search extends Component {
             <Grid item xs={10}>
               <ThemeProvider theme={theme}>
                 <Button type="button" fullWidth variant="contained" color="primary" component='a' onClick={this.handleClick}>
-                  <Typography variant="body1" className={classes.searchMarginBottom}>Search</Typography>
+                  <Typography variant="body1" className={classes.buttonMargin}>Search</Typography>
                 </Button>
               </ThemeProvider>
             </Grid>

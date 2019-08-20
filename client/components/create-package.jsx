@@ -80,7 +80,6 @@ class CreatePackage extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { title, description, location, tags, timeRange, dates, imageUrl } = this.state;
-
     if (!title.length || !description.length || !location.name.length || !imageUrl.length) {
       this.setState({
         inputErrors: {
@@ -95,15 +94,20 @@ class CreatePackage extends Component {
       if (imageUrl.length !== 0 && dates.length !== 0 && tags.length !== 0 && location.name.length !== 0) {
         fetch('/api/package.php', {
           method: 'POST',
-          body: JSON.stringify(
-            { title, location, tags, timeRange, description, dates, imageUrl })
-        })
+          body: JSON.stringify({ 
+            title, 
+            location, 
+            tags, 
+            timeRange, 
+            description, 
+            dates, 
+            imageUrl })
+          })
           .then(res => res.json())
           .then(newPackage => console.log('new package on createPackage', newPackage));
         this.setState({ openSnackBar: false });
-        this.props.history.push('/user-profile/' + this.props.packages.email);
+        this.props.history.push('/user-profile/' + this.props.match.params.id);
       }
-      // }
     }
     if (imageUrl.length === 0 || dates.length === 0 || tags.length === 0 || location.name.length === 0) {
       this.setState({ openSnackBar: true });
@@ -202,8 +206,6 @@ class CreatePackage extends Component {
     } else if (this.state.tags.length === 0) {
       warning = '⛔️ You need to pick categories 🍧';
     }
-
-
     const geocoderApiOptions = {
       country: 'us',
       proximity: { longitude: -118.243683, latitude: 34.052235 }
@@ -261,16 +263,16 @@ class CreatePackage extends Component {
 
           <Grid container justify="center" direction="row">
             <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
-              <img id="0" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[0] : null} alt="" />
+              <img id="0" className={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[0] : null} alt="" />
             </div>
             <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
-              <img id="1" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[1] : null} alt="" />
+              <img id="1" className={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[1] : null} alt="" />
             </div>
             <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
-              <img id="2" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[2] : null} alt="" />
+              <img id="2" className={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[2] : null} alt="" />
             </div>
             <div className={`preview ${classes.divStyle}`} onClick={this.removeImage}>
-              <img id="3" style={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[3] : null} alt="" />
+              <img id="3" className={classes.imgStyle} src={this.state.imageUrl ? this.state.imageUrl[3] : null} alt="" />
             </div>
             <IconButton aria-label="add" className={classes.noPadding} onClick={this.iconClickhandler}>
               <AddCircleOutline style={{ fontSize: 40 }} />

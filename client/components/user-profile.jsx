@@ -44,14 +44,11 @@ class UserProfile extends Component {
         loggedIn: false
       }
       this.setState({ user }, () => this.props.history.push('/login', user )) 
-    
-    })
-      
+    })  
   }
 
   render() {
     const { classes } = this.props;
-    console.log( this.state, 'app')
     if (!this.state.user) {
       return null;
     }
@@ -79,7 +76,7 @@ class UserProfile extends Component {
                   <Typography variant="button">Edit profile</Typography>
                 </Button>
                 {this.state.user.isGuide
-                  ? <Button className={classes.buttonCreate} type="button" fullWidth variant="contained" color="secondary" component={Link} to={'/create-package'} >
+                  ? <Button className={classes.buttonCreate} type="button" fullWidth variant="contained" color="secondary" component={Link} to={`/create-package/${this.props.match.params.id}`} >
                       Create Package
                     </Button>
                   : null

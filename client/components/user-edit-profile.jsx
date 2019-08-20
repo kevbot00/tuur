@@ -106,7 +106,6 @@ class EditProfile extends Component {
     fetch(`/api/profile.php?id=${this.props.match.params.id}`)
     .then(res => res.json())
     .then(data => {
-      console.log( 'component',data );
       this.setState({
         name: data.name,
         email: data.email,
@@ -124,7 +123,6 @@ class EditProfile extends Component {
 
   render() {
     const { classes } = this.props;
-    // console.log( this.props );
     return (
       <>
         <Container className={classes.marginBottomSpacingTwo} >

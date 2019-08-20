@@ -100,7 +100,7 @@ class LogIn extends React.Component {
         <Grid item xs={8}>
           <ThemeProvider theme={theme}>
             <Button type="submit" className={classes.logInMarginTop} onClick={ this.handleSubmit } fullWidth variant="contained" color="primary">
-              <Typography variant="body1" gutterBottom>log in</Typography>
+              <Typography className={classes.buttonMargin} variant="body1" gutterBottom>log in</Typography>
             </Button>
           </ThemeProvider>
         </Grid>

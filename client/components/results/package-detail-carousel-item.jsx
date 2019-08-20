@@ -9,7 +9,6 @@ class CarouselImage extends Component {
 
   render(){
     const { classes } = this.props;
-    console.log( classes );
     return (
       <div className={`${classes.divStyle} ${classes.productPreview}`} onClick={this.props.click }>
         <img id={ this.props.id } className={classes.imgStyle} src={ this.props.images }/>
