@@ -9,13 +9,12 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-// import { fabGithub } from '@fortawesome/free-solid-svg-icons';
 
 const styles = theme => ({
   card: {
     display: 'flex',
     height: '150px',
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1.5),
     width: '89%'
   },
   cover: {
@@ -34,7 +33,7 @@ const styles = theme => ({
     padding: 0
   },
   title: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(3)
   },
   back: {
     position: 'absolute',
@@ -53,9 +52,9 @@ function AboutUs(props) {
   const { classes } = props;
   return (
     <>
-      <Grid container justify="center" style={{ paddingBottom: '80px' }}>
+      <Grid container justify="center" style={{ paddingBottom: '60px' }}>
         <Grid className={classes.back} component={Link} to={'/'}>
-          <KeyboardArrowLeft style={{ fontSize: '40px' }} />
+          <KeyboardArrowLeft style={{ fontSize: '40px' }} onClick={ () => props.history.goBack()} />
         </Grid>
         <Typography variant="h4" className={classes.title}>
           About us

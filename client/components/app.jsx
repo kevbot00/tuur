@@ -29,31 +29,11 @@ class App extends Component {
       },
       auth: []
     };
-    // this.setRoutePath = this.setRoutePath.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.logIn = this.logIn.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
     this.edit = this.edit.bind(this);
   }
-  componentDidMount(){
-    // console.log( 'app componentDidMount');
-    // fetch('/api/loginStatus.php')
-    // .then( res => res.json())
-    // .then( data => this.setState({ user: data}))
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // if (this.state.path !== prevState.path || this.state.tags !== prevState.tags) {
-    //   this.props.history.push(this.state.path);
-    // }
-    // IF 
-  }
-
-  // setRoutePath(path) {
-  //   this.setState({
-  //     path: path
-  //   });
-  // }
 
   logIn( user ) {
     this.setState({ user }, () => {
@@ -103,7 +83,7 @@ class App extends Component {
 
   render() {
     return (
-      <div class="mobile-container">
+      <div className="mobile-container">
         <Switch>
           <Route exact path="/login"
             render={props =>
@@ -132,12 +112,20 @@ class App extends Component {
           }/>
           <Route exact path="/user-profile/:id"
             render={props => 
-              <UserProfile user={this.state.user} {...props} logout={this.logoutHandler} isAuthed={true}/>
+              <UserProfile {...props} 
+                user={this.state.user} 
+                logout={this.logoutHandler} 
+                isAuthed={true}
+              />
           }/>
 
           <Route exact path="/edit-profile/:id"
             render={props => 
-              <EditProfile user={this.state.user} edit={this.edit} {...props} isAuthed={true}/>
+              <EditProfile {...props} 
+                user={this.state.user} 
+                edit={this.edit} 
+                isAuthed={true}
+              />
           }/>
 
           <Route path="/results" 
@@ -157,24 +145,27 @@ class App extends Component {
 
           <Route path="/package-details/:id"
             render={props => 
-              <PackageDetails {...props} location={ this.state.location } packages={this.state.user} isAuthed={true}/>
+              <PackageDetails {...props} 
+                location={ this.state.location } 
+                packages={this.state.user} 
+                isAuthed={true}
+              />
           }/>
-          
           <Route path="/create-package"
             render={props => 
-              <CreatePackage {...props} packages={this.state.user} isAuthed={true}/>
+              <CreatePackage {...props} 
+                packages={this.state.user} 
+                isAuthed={true}
+              />
           }/>
-
-          <Route path="/about-us"
+          <Route path="/about-us" 
             render={props => 
-              <AboutUs {...props} />
-            }
+              <AboutUs {...props} />} 
           />
 
         </Switch>
         <BottomNav path={this.setRoutePath} user={this.state.user}/>
       </div>
-
     );
   }
 }

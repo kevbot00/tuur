@@ -19,9 +19,9 @@ const styles = theme => ({
     margin: theme.spacing(0.5),
     fontSize: 33
   },
-  marginTop: {
-    marginTop: theme.spacing()
-  },
+  // marginTop: {
+  //   marginTop: theme.spacing()
+  // },
   marginBottom: {
     marginBottom: theme.spacing(3)
   },

@@ -9,7 +9,6 @@ class Itinerary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // expanded: false,
       packages: [],
       hostedPackages: [],
       switch: false,
@@ -99,6 +98,7 @@ class Itinerary extends Component {
   }
 
   render() {
+    console.log(this.state)
     let currentState;
     if (this.state.auth.loggedIn) {
       currentState = this.state.auth.isGuide;
@@ -109,26 +109,34 @@ class Itinerary extends Component {
         <Container className={classes.marginBottom}>
           <Typography className={classes.marginTop} variant="h4">
             Booked Tuurs
-            { currentState
-              ? <ItineraryToggleButton switch={this.handleSwitch}/>
-              : null
+            {
+              currentState
+                ? <ItineraryToggleButton switch={this.handleSwitch} />
+                : null
             }
           </Typography>
-          {/* TOGGLE **** INCLUDE ONLY IF GUIDE ****  */}
-
         </Container>
 
-        {this.state.switch
-          ? <> {/* HOSTED ON TRUE */}
-            <Container style={{ paddingBottom: '80px' }}>
-              {this.state.packages ? this.hostedPackageCondition() : null}
-            </Container>
-          </>
-          : <> {/* BOOKED ON FALSE */}
-            <Container style={{ paddingBottom: '80px' }}>
-              {this.state.packages ? this.packageCondition() : null}
-            </Container>
-          </>
+        {
+          this.state.switch
+            ? <> {/* HOSTED ON TRUE */}
+              <Container style={{ paddingBottom: '80px' }}>
+                {this.state.packages ? this.hostedPackageCondition() : null}
+              </Container>
+            </>
+            : <> {/* BOOKED ON FALSE */}
+              <Container style={{ paddingBottom: '80px' }}>
+                {this.state.packages ? this.packageCondition() : null}
+              </Container>
+            </>
+        }
+
+        {
+          !this.state.loggedIn
+            ? <Container style={{ paddingBottom: '80px' }}>
+                <Typography variant="subtitle1">Please login to view your booked packages.</Typography>
+              </Container>
+            : null
         }
       </>
     );
