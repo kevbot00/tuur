@@ -58,15 +58,15 @@ function AboutUs(props) {
         <Grid className={classes.back} component={Link} to={'/'}>
           <KeyboardArrowLeft style={{ fontSize: '40px' }} onClick={ () => props.history.goBack()} />
         </Grid>
-        <Typography variant="h4" className={classes.title}>
+        <Typography variant="h4" className={classes.aboutUsTitle}>
           About us
         </Typography>
 
-        <Card className={classes.card}>
+        <Card className={classes.aboutUsCard}>
           <Grid container justify="center">
             <Grid item xs={4}>
               <CardMedia
-                className={classes.cover}
+                className={classes.aboutUsCover}
                 image="https://media.licdn.com/dms/image/C5603AQGSKrl7sWK43g/profile-displayphoto-shrink_800_800/0?e=1565827200&v=beta&t=snJfUdGJcvrokijZLr6UoIoXoCFXfjX1PJ6anGeLMM4"
               />
             </Grid>
@@ -75,7 +75,7 @@ function AboutUs(props) {
                 <Typography variant="h5">
                   Jennifer Ong
                 </Typography>
-                <Typography variant="subtitle1" color="textSecondary" className={classes.padding}>
+                <Typography variant="subtitle1" color="textSecondary" className={classes.paddingZero}>
                   Front-End Developer
                 </Typography>
                   <div>
@@ -91,11 +91,11 @@ function AboutUs(props) {
           </Grid>
         </Card>
 
-        <Card className={classes.card}>
+        <Card className={classes.aboutUsCard}>
           <Grid container justify="center">
             <Grid item xs={4}>
               <CardMedia
-                className={classes.cover}
+                className={classes.aboutUsCover}
                 image="https://i.imgur.com/CsqrQ0Z.jpg"
               />
             </Grid>
@@ -119,11 +119,11 @@ function AboutUs(props) {
             </Grid>
           </Grid>
         </Card>
-        <Card className={classes.card}>
+        <Card className={classes.aboutUsCard}>
           <Grid container justify="center">
             <Grid item xs={4}>
               <CardMedia
-                className={classes.cover}
+                className={classes.aboutUsCover}
                 image="https://media.licdn.com/dms/image/C5603AQFBfsraS_yvZA/profile-displayphoto-shrink_800_800/0?e=1565827200&v=beta&t=seB_qNVCXWiM3EytwvLQ-dbOYtLXUgObLUa_Uw4gDBM"
               />
             </Grid>
@@ -147,11 +147,11 @@ function AboutUs(props) {
             </Grid>
           </Grid>
         </Card>
-        <Card className={classes.card}>
+        <Card className={classes.aboutUsCard}>
           <Grid container justify="center">
             <Grid item xs={4}>
               <CardMedia
-                className={classes.cover}
+                className={classes.aboutUsCover}
                 image='../images/kev.png'
               />
             </Grid>
