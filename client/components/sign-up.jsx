@@ -13,44 +13,45 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { Link, withRouter } from 'react-router-dom';
+import { theme, styles } from '../style-themes';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#A6C7C8' },
-    inherit: { main: '#A0C3C5' },
-    default: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#A6C7C8' },
+//     inherit: { main: '#A0C3C5' },
+//     default: { main: '#f5e1da' }
+//   }
+// });
 
-const styles = theme => ({
-  margin: {
-    margin: theme.spacing(0.5),
-    fontSize: 33
-  },
-  padding: {
-    padding: theme.spacing(1)
-  },
-  paddingBottom: {
-    paddingBottom: theme.spacing(1),
-    paddingLeft: theme.spacing(1)
-  },
-  textField: {
-    marginRight: theme.spacing(1),
-    width: '100%'
-  },
-  marginTop: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(5)
-  },
-  avatar: {
-    width: 60,
-    height: 60
-  },
-  marginTop2: {
-    marginTop: theme.spacing(2)
-  }
-});
+// const styles = theme => ({
+//   margin: {
+//     margin: theme.spacing(0.5),
+//     fontSize: 33
+//   },
+//   padding: {
+//     padding: theme.spacing(1)
+//   },
+//   paddingBottom: {
+//     paddingBottom: theme.spacing(1),
+//     paddingLeft: theme.spacing(1)
+//   },
+//   textField: {
+//     marginRight: theme.spacing(1),
+//     width: '100%'
+//   },
+//   marginTop: {
+//     marginTop: theme.spacing(3),
+//     marginBottom: theme.spacing(5)
+//   },
+//   avatar: {
+//     width: 60,
+//     height: 60
+//   },
+//   marginTop2: {
+//     marginTop: theme.spacing(2)
+//   }
+// });
 
 class SignUp extends Component {
   constructor(props) {
@@ -135,12 +136,12 @@ class SignUp extends Component {
 
     return (
       <Container>
-        <Typography className={classes.marginTop} variant="h4" align="center" gutterBottom>
+        <Typography className={classes.signUpMarginTop} variant="h4" align="center" gutterBottom>
         Sign up
         </Typography>
         <Grid mx="auto" container component="form" justify="center" onSubmit={this.handleSubmit}>
 
-          <Grid className={classes.margin} container alignItems="flex-end">
+          <Grid className={classes.root} container alignItems="flex-end">
             <Grid item xs={2}>
               <AccountCircle fontSize='inherit' className={classes.paddingBottom}/>
             </Grid>
@@ -148,7 +149,7 @@ class SignUp extends Component {
               <TextField required helperText={this.state.inputErrors.name ? 'Name must include first and last name' : ' '} error={this.state.inputErrors.name} fullWidth id="input-name" label="Name" name="name" onChange={this.handleInputChange} />
             </Grid>
           </Grid>
-          <Grid className={classes.margin} container alignItems="flex-end">
+          <Grid className={classes.root} container alignItems="flex-end">
             <Grid item xs={2}>
               <Email fontSize='inherit' className={classes.paddingBottom}/>
             </Grid>
@@ -157,7 +158,7 @@ class SignUp extends Component {
             </Grid>
           </Grid>
 
-          <Grid className={classes.margin} container alignItems="flex-end">
+          <Grid className={classes.root} container alignItems="flex-end">
             <Grid item xs={2}>
               <LocationOn fontSize='inherit' className={classes.paddingBottom}/>
             </Grid>
@@ -166,7 +167,7 @@ class SignUp extends Component {
             </Grid>
           </Grid>
 
-          <Grid className={classes.margin} container alignItems="flex-end">
+          <Grid className={classes.root} container alignItems="flex-end">
             <Grid item xs={3}>
               <Avatar alt="avatar" src={this.state.image ? this.state.image : 'https://www.pngfind.com/pngs/m/481-4816267_default-icon-shadow-of-man-head-hd-png.png'} className={classes.avatar}/>
             </Grid>
@@ -174,7 +175,7 @@ class SignUp extends Component {
               <TextField required helperText={this.state.inputErrors.image ? 'Please enter a valid image url (255 character min)' : ' '} error={this.state.inputErrors.image} fullWidth id="input-imageUrl" label="Upload your image(URL)" name="image" onChange={this.handleInputChange} />
             </Grid>
           </Grid>
-          <Grid className={classes.margin} container alignItems="flex-end">
+          <Grid className={classes.root} container alignItems="flex-end">
             <Grid item xs={12}>
               <TextField
                 id='outlined-textarea'
@@ -185,7 +186,7 @@ class SignUp extends Component {
                 multiline
                 fullWidth
                 rowsMax={3}
-                className={classes.textField}
+                className={classes.createPackageTextField}
                 margin='normal'
                 name="bio"
                 onChange={this.handleInputChange}
@@ -193,12 +194,12 @@ class SignUp extends Component {
             </Grid>
           </Grid>
 
-          <Grid justify="center" className={classes.margin} container>
+          <Grid justify="center" className={classes.root} container>
             <FormControlLabel control={
               <Switch checked={this.state.isGuide} onChange={() => this.handdleToggle(event)} value="guide" />} label="Do you want to be a guide?" />
-            <Grid className={classes.marginTop} container justify="center" >
+            <Grid className={classes.signUpMarginTop} container justify="center" >
               <ThemeProvider theme={theme}>
-                <Button type="submit" className={classes.margin} fullWidth variant="contained" color="primary">
+                <Button type="submit" className={classes.root} fullWidth variant="contained" color="primary">
                   <Typography variant="body1" >Sign Up</Typography>
                 </Button>
               </ThemeProvider>

@@ -6,17 +6,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Home from '@material-ui/icons/Home';
 import CardTravel from '@material-ui/icons/CardTravel';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    position: 'fixed',
-    bottom: 0,
-    padding: '7px 0',
-    zIndex: '100',
-    borderTop: '1px solid #bbbbbb75'
-  }
-});
+import { theme, styles } from '../style-themes';
 
 class BottomNav extends Component {
   constructor(props) {
@@ -74,7 +64,7 @@ class BottomNav extends Component {
       <BottomNavigation
         onChange={this.handleChange}
         showLabels
-        className={classes.root}
+        className={classes.bottomNavRoot}
       >
         <BottomNavigationAction id={'home'} onClick={this.handleClick} label="Home" icon={<Home />} />
         <BottomNavigationAction id={'itinerary'} onClick={this.handleClick} label="Itinerary" icon={<CardTravel />} auth={this.state.auth} />
@@ -82,7 +72,17 @@ class BottomNav extends Component {
       </BottomNavigation>
     );
   }
-
 }
+
+// const styles = theme => ({
+//   root: {
+//     width: '100%',
+//     position: 'fixed',
+//     bottom: 0,
+//     padding: '7px 0',
+//     zIndex: '100',
+//     borderTop: '1px solid #bbbbbb75'
+//   }
+// });
 
 export default withRouter(withStyles(styles)(BottomNav));

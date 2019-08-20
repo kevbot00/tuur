@@ -6,63 +6,64 @@ import Typography from '@material-ui/core/Typography';
 import UpComingTuurItem from './user-upcoming-tuurs-list-item';
 import GridList from '@material-ui/core/GridList';
 import BookedTuurs from './user-booked-tuurs-list-item';
+import { theme, styles } from '../style-themes';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#A6C7C8' },
-    inherit: { main: '#A0C3C5' },
-    default: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#A6C7C8' },
+//     inherit: { main: '#A0C3C5' },
+//     default: { main: '#f5e1da' }
+//   }
+// });
 
-const styles = theme => ({
-  marginTop: {
-    marginTop: theme.spacing(3)
-  },
-  avatar: {
-    width: 80,
-    height: 80
-  },
-  cardContainer: {
-    marginBottom: theme.spacing(1),
-    display: 'flex',
-    padding: 10,
-    width: '40rem'
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(2)
-  },
-  marginLeft: {
-    marginLeft: theme.spacing(2)
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    margin: theme.spacing(1)
-  },
-  gridList: {
-    flexWrap: 'nowrap',
-    transform: 'translateZ(0)',
-    margin: theme.spacing(2),
-    height: 260
-  },
-  margin: {
-    margin: theme.spacing(0.5),
-    fontSize: 33
-  },
-  marginTop2: {
-    marginTop: theme.spacing(4)
-  },
-  fab: {
-    margin: theme.spacing(1)
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1)
-  }
-});
+// const styles = theme => ({
+//   marginTop: {
+//     marginTop: theme.spacing(3)
+//   },
+//   avatar: {
+//     width: 80,
+//     height: 80
+//   },
+//   cardContainer: {
+//     marginBottom: theme.spacing(1),
+//     display: 'flex',
+//     padding: 10,
+//     width: '40rem'
+//   },
+//   marginBottom: {
+//     marginBottom: theme.spacing(2)
+//   },
+//   marginLeft: {
+//     marginLeft: theme.spacing(2)
+//   },
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     justifyContent: 'space-around',
+//     overflow: 'hidden',
+//     margin: theme.spacing(1)
+//   },
+//   gridList: {
+//     flexWrap: 'nowrap',
+//     transform: 'translateZ(0)',
+//     margin: theme.spacing(2),
+//     height: 260
+//   },
+//   margin: {
+//     margin: theme.spacing(0.5),
+//     fontSize: 33
+//   },
+//   marginTop2: {
+//     marginTop: theme.spacing(4)
+//   },
+//   fab: {
+//     margin: theme.spacing(1)
+//   },
+//   extendedIcon: {
+//     marginRight: theme.spacing(1)
+//   }
+// });
 
 class UpComingTuursList extends Component {
   constructor(props) {
@@ -119,13 +120,13 @@ class UpComingTuursList extends Component {
     return (
       <>
         {/* BOOKED PACKAGES */}
-        <Container className={classes.marginBottom} >
+        <Container className={classes.marginBottomSpacingTwo} >
           <Typography className={classes.marginTop} variant="h5">
             Booked Packages
           </Typography>
         </Container>
-        <div className={classes.root}>
-          <GridList className={classes.gridList} cols={1.5} cellHeight={300}>
+        <div className={classes.searchResultGuideListRoot}>
+          <GridList className={classes.userUpcomingTuursListGridList} cols={1.5} cellHeight={300}>
             {bookedMap}
           </GridList>
         </div>
@@ -134,13 +135,13 @@ class UpComingTuursList extends Component {
         {
           this.props.user.isGuide
             ? <>
-            <Container className={classes.marginBottom} >
+            <Container className={classes.marginBottomSpacingTwo} >
               <Typography className={classes.marginTop} variant="h5">
                 Created Packages
               </Typography>
             </Container>
-            <div className={classes.root} >
-              <GridList className={classes.gridList} cols={1.5} cellHeight={300}>
+            <div className={classes.searchResultGuideListRoot} >
+              <GridList className={classes.userUpcomingTuursListGridList} cols={1.5} cellHeight={300}>
                 {packageMap}
               </GridList>
             </div>

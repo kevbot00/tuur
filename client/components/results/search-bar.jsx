@@ -16,6 +16,7 @@ import MatGeocoder from 'react-mui-mapbox-geocoder';
 import { Link, withRouter } from 'react-router-dom';
 import Mapbox from './mapbox';
 import queryString from'query-string';
+import { theme, styles } from '../../style-themes';
 
 
 const categories = [
@@ -259,136 +260,136 @@ class SearchBar extends Component {
   }
 }
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#A6C7C8' },
-    inherit: { main: '#A0C3C5' },
-    default: { main: 'white' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#A6C7C8' },
+//     inherit: { main: '#A0C3C5' },
+//     default: { main: 'white' }
+//   }
+// });
 
-const styles = theme => ({
-  grow: {
-    flexGrow: 1,
-    display: 'inline-block'
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block'
-    }
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 'auto'
-    },
-    display: 'inline-block'
-  },
-  searchIcon: {
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'inline-block',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  inputRoot: {
-    color: 'inherit'
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200
-    }
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex'
-    }
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none'
-    }
-  },
-  appBar: {
-    display: 'inline-block',
-    paddingBottom: 8,
-    paddingTop: 5,
-    margin: 0,
-    paddingLeft: 5
-  },
-  display: {
-    display: 'inline-block',
-    paddingBottom: 5,
-    margin: 0,
-    paddingLeft: 30,
-    whiteSpace: 'nowrap'
-  },
-  buttonDiv: {
-    display: 'inline-block',
-    marginLeft: 10,
-    marginRight: 10
-  },
-  button: {
-    backgroundColor: '#A6C7C8',
-    '&.active, &:hover, &.active:hover': {
-      backgroundColor: '#A6C7C8'
-    }
-  },
-  buttonContainer: {
-    paddingLeft: 15
-  },
-  paper: {
-    position: 'absolute',
-    width: 380,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: 7,
-    outline: 'none'
-  },
-  subtitle: {
-    fontSize: 20
-  },
-  width: {
-    width: 0,
-    opacity: 0,
-    position: 'absolute'
-  },
-  searchStyle: {
-    fontSize: 30,
-    paddingLeft: 10,
-    paddingTop: 2
-  },
-  textField: {
-    backgroundColor: 'white',
-    padding: 5,
-    marginLeft: 5,
-    borderRadius: '7px'
-  },
-  marginLeft: {
-    marginLeft: 20,
-    paddingTop: 3
-  },
-  inputContainer: {
-    paddingLeft: 15
-  }
-});
+// const styles = theme => ({
+//   grow: {
+//     flexGrow: 1,
+//     display: 'inline-block'
+//   },
+//   menuButton: {
+//     marginRight: theme.spacing(2)
+//   },
+//   title: {
+//     display: 'none',
+//     [theme.breakpoints.up('sm')]: {
+//       display: 'block'
+//     }
+//   },
+//   search: {
+//     position: 'relative',
+//     borderRadius: theme.shape.borderRadius,
+//     backgroundColor: fade(theme.palette.common.white, 0.15),
+//     '&:hover': {
+//       backgroundColor: fade(theme.palette.common.white, 0.25)
+//     },
+//     marginLeft: 0,
+//     width: '100%',
+//     [theme.breakpoints.up('sm')]: {
+//       width: 'auto'
+//     },
+//     display: 'inline-block'
+//   },
+//   searchIcon: {
+//     height: '100%',
+//     position: 'absolute',
+//     pointerEvents: 'none',
+//     display: 'inline-block',
+//     alignItems: 'center',
+//     justifyContent: 'center'
+//   },
+//   inputRoot: {
+//     color: 'inherit'
+//   },
+//   inputInput: {
+//     padding: theme.spacing(1, 1, 1, 7),
+//     transition: theme.transitions.create('width'),
+//     width: '100%',
+//     [theme.breakpoints.up('md')]: {
+//       width: 200
+//     }
+//   },
+//   sectionDesktop: {
+//     display: 'none',
+//     [theme.breakpoints.up('md')]: {
+//       display: 'flex'
+//     }
+//   },
+//   sectionMobile: {
+//     display: 'flex',
+//     [theme.breakpoints.up('md')]: {
+//       display: 'none'
+//     }
+//   },
+//   appBar: {
+//     display: 'inline-block',
+//     paddingBottom: 8,
+//     paddingTop: 5,
+//     margin: 0,
+//     paddingLeft: 5
+//   },
+//   display: {
+//     display: 'inline-block',
+//     paddingBottom: 5,
+//     margin: 0,
+//     paddingLeft: 30,
+//     whiteSpace: 'nowrap'
+//   },
+//   buttonDiv: {
+//     display: 'inline-block',
+//     marginLeft: 10,
+//     marginRight: 10
+//   },
+//   button: {
+//     backgroundColor: '#A6C7C8',
+//     '&.active, &:hover, &.active:hover': {
+//       backgroundColor: '#A6C7C8'
+//     }
+//   },
+//   buttonContainer: {
+//     paddingLeft: 15
+//   },
+//   paper: {
+//     position: 'absolute',
+//     width: 380,
+//     backgroundColor: theme.palette.background.paper,
+//     boxShadow: theme.shadows[5],
+//     padding: 7,
+//     outline: 'none'
+//   },
+//   subtitle: {
+//     fontSize: 20
+//   },
+//   width: {
+//     width: 0,
+//     opacity: 0,
+//     position: 'absolute'
+//   },
+//   searchStyle: {
+//     fontSize: 30,
+//     paddingLeft: 10,
+//     paddingTop: 2
+//   },
+//   textField: {
+//     backgroundColor: 'white',
+//     padding: 5,
+//     marginLeft: 5,
+//     borderRadius: '7px'
+//   },
+//   marginLeft: {
+//     marginLeft: 20,
+//     paddingTop: 3
+//   },
+//   inputContainer: {
+//     paddingLeft: 15
+//   }
+// });
 
 export default withRouter( withStyles(styles)(SearchBar) );

@@ -11,38 +11,39 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ThemeProvider } from '@material-ui/styles';
+import { theme, styles } from '../style-themes';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3A8288' },
-    secondary: { main: '#5bd1d7' },
-    lightBeige: { main: '#f1f1f1' },
-    beige: { main: '#f5e1da' }
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: { main: '#3A8288' },
+//     secondary: { main: '#5bd1d7' },
+//     lightBeige: { main: '#f1f1f1' },
+//     beige: { main: '#f5e1da' }
+//   }
+// });
 
-const styles = theme => ({
-  card: {
-    maxWidth: 400,
-    marginBottom: '10px'
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%'
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest
-    })
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)'
-  },
-  datail: {
-    paddingLeft: '54%'
-  }
-});
+// const styles = theme => ({
+//   card: {
+//     maxWidth: 400,
+//     marginBottom: '10px'
+//   },
+//   media: {
+//     height: 0,
+//     paddingTop: '56.25%'
+//   },
+//   expand: {
+//     transform: 'rotate(0deg)',
+//     transition: theme.transitions.create('transform', {
+//       duration: theme.transitions.duration.shortest
+//     })
+//   },
+//   expandOpen: {
+//     transform: 'rotate(180deg)'
+//   },
+//   datail: {
+//     paddingLeft: '54%'
+//   }
+// });
 
 class ItineraryItem extends Component {
   constructor(props) {
@@ -82,13 +83,13 @@ class ItineraryItem extends Component {
     const { title, timeRange, tags, profileEmail, mainImage, location, images, description, dates } = this.props.item;
     return (
       <>
-        <Card className={classes.card}>
+        <Card className={classes.itineraryPackageItemCard}>
           <CardHeader
             title={title}
           // subheader="September 14, 2016"
           />
           <CardMedia
-            className={classes.media}
+            className={classes.searchResultPackageItemMedia}
             image={mainImage}
             title={title}
           />
@@ -97,14 +98,14 @@ class ItineraryItem extends Component {
               {description}
             </Typography>
           </CardContent>
-          <CardActions className={classes.detail} style={{ paddingLeft: '52%' }}>
+          <CardActions style={{ justifyContent: 'flex-end' }}>
             <ThemeProvider theme={theme}>
-              <Typography className={classes.detail} variant="button" color="primary" align="right">
+              <Typography  variant="button" color="primary">
                 More detail
               </Typography>
             </ThemeProvider>
             <IconButton
-              className={clsx(classes.expand, {
+              className={clsx(classes.itineraryPackageItemExpand, {
                 [classes.expandOpen]: this.state.expanded
               })}
               onClick={this.handleExpandClick }

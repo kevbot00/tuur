@@ -74,12 +74,14 @@ elseif ($method === 'GET'){
         $output['status'] = false;
     } else {
         $output['status'] = true;
+    }  
+
+    if ( isset($_GET['login']) ){
+        $_SESSION['isGuide'] = $output['isGuide'];
+        $_SESSION['id'] = $output['id'];
     }
-    $_SESSION['isGuide'] = $output['isGuide'];
-    
+
     $json_output = json_encode($output);
-    
-    $_SESSION['id'] = $output['id'];
     print_r($json_output);
 }
 elseif ($method === 'PATCH'){

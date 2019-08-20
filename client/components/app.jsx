@@ -11,7 +11,7 @@ import UserViewProfile from './user-view-profile';
 import EditProfile from './user-edit-profile';
 import GuidePackages from './user-view-guide-profile';
 import SignUp from './sign-up';
-import CreatePackage from './createPackage';
+import CreatePackage from './create-package';
 import AboutUs from './about-us';
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
 
   edit(user) {
     this.setState({ user }, () => this.props.history.push({
-      pathname: '/user-profile/' + user.email,
+      pathname: '/user-profile/' + user.id,
       state: { user }
     }));
   }
@@ -151,7 +151,7 @@ class App extends Component {
                 isAuthed={true}
               />
           }/>
-          <Route path="/create-package"
+          <Route path="/create-package/:id"
             render={props => 
               <CreatePackage {...props} 
                 packages={this.state.user} 

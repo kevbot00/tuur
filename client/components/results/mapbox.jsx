@@ -8,15 +8,16 @@ import TuurPin from './tuur-pin';
 import PopupInfo from './popup-info';
 import queryString from'query-string';
 import { Link, withRouter } from 'react-router-dom';
+import { theme, styles } from '../../style-themes';
 
-const styles = theme => ({
-  mapContainer: {
-    top: 0,
-    position: 'relative',
-    width: '100%',
-    height: '100%'
-  }
-});
+// const styles = theme => ({
+//   mapContainer: {
+//     top: 0,
+//     position: 'relative',
+//     width: '100%',
+//     height: '100%'
+//   }
+// });
 
 class Mapbox extends Component {
   constructor(props) {
