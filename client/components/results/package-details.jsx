@@ -278,7 +278,7 @@ class PackageDetails extends Component {
                       </CardContent>
 
                       <CardContent>
-                        <Typography variant="subtitle1" color="textSecondary">
+                        <Typography variant="subtitle1" color="textSecondary" noWrap>
                           {this.state.package ? this.state.package.bio : null}
                         </Typography>
                       </CardContent>

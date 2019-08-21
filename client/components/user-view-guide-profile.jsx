@@ -27,23 +27,25 @@ class GuidePackages extends Component {
           .then(packages => this.setState({ userEmail: this.props.guideInfo.email, packages }));
     } 
   }
+
+  guidePackageListRender() {
+    return this.state.packages.map((packageItem, id) => {
+      return <GuidePackageList key={id} package={packageItem} />;
+    });
+  }
   
   render() {
     const { classes } = this.props;
-    const packageMap = this.state.packages.map((packageItem, id) => {
-      return <GuidePackageList key={id} package={packageItem} />;
-    });
-
     return (
       <>
         <Container className={classes.marginBottomSpacingTwo} >
-          <Typography className={classes.logInMarginTop} variant="h4">
+          <Typography className={classes.logInMarginTop} style={{ paddingLeft: '16px' }}  variant="h4">
             Created Packages
           </Typography>
         </Container>
         <div className={classes.searchResultGuideListRoot}>
           <GridList className={classes.userUpcomingTuursListGridList} cols={1.5} cellHeight={300}>
-            {packageMap}
+            {this.guidePackageListRender()}
           </GridList>
         </div>
       </>
