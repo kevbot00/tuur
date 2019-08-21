@@ -40,7 +40,7 @@ class UserViewProfile extends Component {
       });
   }
 
-  componentDidUpdate( nextProps ) {
+  componentDidUpdate(nextProps) {
     if (!this.state.name) {
       const email = this.props.match.params.email;
       fetch('/api/profile.php?id=' + id)
@@ -63,39 +63,42 @@ class UserViewProfile extends Component {
     if (!this.state) return null;
     return (
       <>
-      <Container className={classes.marginBottom} >
-        <Grid item xs={2} 
-          className={classes.paddingRight} 
-          name='back' 
-          onClick={this.props.history.goBack}
-        >
-          <KeyboardArrowLeft className={classes.fontSize} />
-        </Grid>
-        <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
-          {this.state.name}
-        </Typography>
-        <Typography className={classes.userProfileMarginLeft} variant="subtitle1">
-          {this.state.location}
-        </Typography>
-      </Container>
-      <Container>
-        <Grid className={classes.marginBottom} container
-          direction="row"
-          justify="center"
-          alignItems="center">
-          <Grid item xs={4}>
-            <Avatar alt="avatar" src={this.state.image} className={classes.userEditProfileAvatar} />
+        <Container className={classes.marginBottom} >
+          <Grid item xs={2}
+            className={classes.paddingRight}
+            name='back'
+            onClick={this.props.history.goBack}
+          >
+            <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
-          <Grid item xs={6}>
-            <Typography variant="button">{this.state.bio}</Typography>
+        </Container>
+
+        <Container>
+          <Grid container direction="row">
+            <Grid xs={8}>
+              <Typography style={{ paddingLeft: '16px' }} variant="h4">
+                {this.state.name}
+              </Typography>
+              <Typography className={classes.userProfileMarginLeft} variant="subtitle1">
+                {this.state.location}
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Avatar alt="avatar" src={this.state.image} className={classes.userEditProfileAvatar} />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-      <GuidePackages guideInfo={this.state} />
-      {/* {this.state.isGuide
-        ? <UpComingTuursList view={this.props.view} user={ this.props.user } isGuide={this.state.isGuide}/>
-        : <Typography variant="h5">No Tuurs available</Typography>
-      } */}
+        </Container>
+        
+        <Container className={classes.marginBottomSpacingTwo} >
+          <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
+            About
+          </Typography>
+        </Container>
+
+        <Container className={`${classes.marginBottomSpacingTwo} ${classes.marginTop}`} >
+          <Typography style={{ paddingLeft: '16px' }} >{this.state.bio}</Typography>
+        </Container>
+        <GuidePackages guideInfo={this.state} />
       </>
     );
   }
