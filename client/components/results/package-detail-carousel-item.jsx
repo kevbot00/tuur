@@ -1,20 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../style-themes';
 
-class CarouselImage extends Component {
-  constructor( props ){
-    super( props );
-  }
+const CarouselImage = (props) => {
+  const { classes } = props;
+  return (
+    <div className={`${classes.divStyle} ${classes.productPreview} ${classes.pointer}`} onClick={props.click}>
+      <img id={props.id} className={classes.imgStyle} src={props.images} />
+    </div>
+  )
 
-  render(){
-    const { classes } = this.props;
-    return (
-      <div className={`${classes.divStyle} ${classes.productPreview}`} onClick={this.props.click }>
-        <img id={ this.props.id } className={classes.imgStyle} src={ this.props.images }/>
-      </div>
-    )
-  }
 }
 
 // const divStyle = {
