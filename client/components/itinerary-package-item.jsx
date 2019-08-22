@@ -93,11 +93,6 @@ class ItineraryItem extends Component {
             image={mainImage}
             title={title}
           />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p" noWrap>
-              {description}
-            </Typography>
-          </CardContent>
           <CardActions style={{ justifyContent: 'flex-end' }}>
             <ThemeProvider theme={theme}>
               <Typography  variant="button" color="primary">

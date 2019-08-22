@@ -6,6 +6,7 @@ import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import MatGeocoder from 'react-mui-mapbox-geocoder';
 import Slider from 'react-slick';
@@ -14,6 +15,7 @@ import MoreVert from '@material-ui/icons/MoreVert';
 import { generateKeyPair } from 'crypto';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { theme, styles } from '../style-themes';
+import GridList from '@material-ui/core/GridList';
 
 
 // const theme = createMuiTheme({
@@ -124,7 +126,7 @@ class Search extends Component {
   aboutUs() {
     this.props.history.push('/about-us');
   }
-  
+
   render() {
     const { classes } = this.props;
     const geocoderApiOptions = {
@@ -155,19 +157,9 @@ class Search extends Component {
     }
     return (
       <div style={{ fontSize: 0 }}>
-        <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo"/>
+        <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo" />
         <div className={classes.aboutUs} component='a' onClick={this.aboutUs} ><MoreVert style={{ fontSize: '30px' }} /></div>
-        {/* <Card style={{ maxWidth: '100%' }} mt={0} className={classes.searchCard}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.searchMedia}
-              component="img"
-              image="https://chopra.com/sites/default/files/field/image/6reasonswhytravelingisgoodforyou.jpg"
-              title="Travel Image"
-            />
-          </CardActionArea>
-        </Card> */}
-        <img style={{ width: '100%', height: '260px' }} src="images/search-main-image.jpg" alt="mainImage"/>
+        <img style={{ width: '100%', height: '260px' }} src="images/search-main-image.jpg" alt="mainImage" />
 
         <Grid justify="center" className={classes.searchMarginTop} container>
           <Grid item xs={10}>
@@ -185,7 +177,7 @@ class Search extends Component {
         </Grid>
 
         <Grid justify="center" container className={classes.searchMarginBottom} >
-          <Grid className={classes.searchMarginTop} container justify="center" >
+          <Grid className={classes.marginTop} container justify="center" >
             <Grid item xs={10}>
               <ThemeProvider theme={theme}>
                 <Button type="button" fullWidth variant="contained" color="primary" component='a' onClick={this.handleClick}>
@@ -195,6 +187,31 @@ class Search extends Component {
             </Grid>
           </Grid>
         </Grid>
+
+        <Grid justify="center" container>
+          <Typography variant="h6">
+            Popular Destinations
+          </Typography>
+        </Grid>
+
+        <Grid style={{ padding: '20px 0 100px' }} justify="center" container>
+          <Card style={{ height: '200px', width: '40%', margin: '10px'}} className={classes.searchPopularDestination} onClick={ () => this.props.history.push('/results?location=Irvine, California, United States&coordinates=-117.826+33.6857')} >
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                src="http://c2eirvine.com/wp-content/uploads/2017/11/irvine-spectrum-720x720.jpg"
+                title="Irvine"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="body1" component="h6">
+                  Irvine, CA
+              </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+
+
       </div>
     );
   }
