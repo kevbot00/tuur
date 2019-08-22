@@ -47,6 +47,9 @@ export const styles = theme => ({
     margin: theme.spacing(0.5),
     fontSize: 33
   },
+  pointer: {
+    cursor: 'pointer'
+  },
   marginBottom: {
     marginBottom: theme.spacing(3)
   },
