@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import GuidePackages from './user-view-guide-profile';
 import { Link, withRouter } from 'react-router-dom';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import Divider from '@material-ui/core/Divider';
 import { theme, styles } from '../style-themes';
 
 
@@ -63,23 +64,19 @@ class UserViewProfile extends Component {
     if (!this.state) return null;
     return (
       <>
-        <Container className={classes.marginBottom} >
-          <Grid item xs={2}
-            className={classes.paddingRight}
-            name='back'
-            onClick={this.props.history.goBack}
-          >
+        <div className={classes.marginBottom} >
+          <Grid item xs={2} name='back' onClick={this.props.history.goBack}>
             <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
-        </Container>
+        </div>
 
-        <Container>
+        <Container className={classes.marginBottomSpacingTwo}>
           <Grid container direction="row">
             <Grid xs={8}>
-              <Typography style={{ paddingLeft: '16px' }} variant="h4">
+              <Typography /*style={{ paddingLeft: '16px' }}*/ variant="h4">
                 {this.state.name}
               </Typography>
-              <Typography className={classes.userProfileMarginLeft} variant="subtitle1">
+              <Typography /*className={classes.userProfileMarginLeft}*/ variant="subtitle1">
                 {this.state.location}
               </Typography>
             </Grid>
@@ -88,16 +85,20 @@ class UserViewProfile extends Component {
             </Grid>
           </Grid>
         </Container>
+
+        <Divider className={classes.marginTop} variant="middle" />
         
         <Container className={classes.marginBottomSpacingTwo} >
-          <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
+          <Typography className={classes.marginTop} /*</Container>style={{ paddingLeft: '16px' }}*/ variant="h4">
             About
           </Typography>
         </Container>
-
-        <Container className={`${classes.marginBottomSpacingTwo} ${classes.marginTop}`} >
-          <Typography style={{ paddingLeft: '16px' }} >{this.state.bio}</Typography>
+        <Container className={`${classes.marginBottomSpacingTwo} ${classes.signUpMarginTopSpacingTwo}`} >
+          <Typography /*style={{ paddingLeft: '16px' }}*/ >{this.state.bio}</Typography>
         </Container>
+
+        <Divider className={classes.marginTop} variant="middle" />
+
         <GuidePackages guideInfo={this.state} />
       </>
     );

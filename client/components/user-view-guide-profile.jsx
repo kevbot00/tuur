@@ -39,8 +39,8 @@ class GuidePackages extends Component {
     return (
       <>
         <Container className={classes.marginBottomSpacingTwo} >
-          <Typography className={classes.logInMarginTop} style={{ paddingLeft: '16px' }}  variant="h4">
-            Created Packages
+          <Typography className={classes.marginTop} /*style={{ paddingLeft: '16px' }}*/  variant="h4">
+            Hosting Packages
           </Typography>
         </Container>
         <div className={classes.searchResultGuideListRoot}>
