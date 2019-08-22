@@ -11,7 +11,6 @@ import { styles } from '../../style-themes';
 
 const SearchPackageItem = (props) => {
   const { classes } = props;
-
   const clickHandler = () => {
     props.history.push({
       pathname: `/package-details/ ${props.item.id}`, 
@@ -20,7 +19,7 @@ const SearchPackageItem = (props) => {
   }
   
   return (
-    <div onClick={clickHandler} hoveredStyle={{cursor: 'default'}}
+    <div onClick={clickHandler} className={classes.pointer}
     //  component={Link} to={{ pathname: `/package-details/ ${props.item.id}`, state: { item: props.item, prevPath: props.location } }}
      >
       <Card className={classes.card} >
