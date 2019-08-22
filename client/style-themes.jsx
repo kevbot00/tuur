@@ -328,7 +328,6 @@ export const styles = theme => ({
     margin: theme.spacing(3),
     height: 180
   },
-
   // search-result-package-item
   marginTop: {
     marginTop: theme.spacing(3)
@@ -383,6 +382,7 @@ export const styles = theme => ({
   // bottom-nav
   bottomNavRoot: {
     width: '100%',
+    maxWidth: '375px',
     position: 'fixed',
     bottom: 0,
     padding: '7px 0',
@@ -516,6 +516,11 @@ export const styles = theme => ({
     height: '70px',
     backgroundRepeat: 'norepeat',
     backgroundSize: '100% 100%',
+    '&:hover': {
+      opacity: 1
+    }
+  },
+  searchPopularDestination: {
     '&:hover': {
       opacity: 1
     }
