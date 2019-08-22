@@ -383,6 +383,7 @@ export const styles = theme => ({
   // bottom-nav
   bottomNavRoot: {
     width: '100%',
+    maxWidth: '375px',
     position: 'fixed',
     bottom: 0,
     padding: '7px 0',
