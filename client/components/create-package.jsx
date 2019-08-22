@@ -253,7 +253,7 @@ class CreatePackage extends Component {
                 </InputLabel>
                 <Input
                   placeholder='Images (max 4 images, click to remove)'
-                  className={classes.input}
+                  className={classes.input2}
                   id="input-imageUrl"
                   type='text'
                 />

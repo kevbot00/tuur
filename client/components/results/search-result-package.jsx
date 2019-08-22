@@ -161,7 +161,6 @@ class SearchPackages extends Component {
   }
 
   filterDates( filteredTuurs, dates ) {
-    debugger;
     const begDate = new Date( dates.start );
     const endDate = new Date( dates.end );
     let begDateYear = begDate.getFullYear();

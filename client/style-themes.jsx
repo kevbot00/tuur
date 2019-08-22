@@ -246,8 +246,8 @@ export const styles = theme => ({
   },
   buttonDiv: {
     display: 'inline-block',
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: 15,
+    marginRight: 15
   },
   button: {
     backgroundColor: '#A6C7C8',
@@ -281,8 +281,8 @@ export const styles = theme => ({
   },
   textField: {
     backgroundColor: 'white',
-    padding: 5,
-    marginLeft: 5,
+    padding: "5px 0",
+    // marginLeft: 5,
     borderRadius: '7px'
   },
   marginLeft: {
@@ -446,6 +446,10 @@ export const styles = theme => ({
     outline: 'none'
   },
   input: {
+    width: '100%',
+    paddingLeft: '5px'
+  },
+  input2: {
     width: '100%'
   },
   form: {
