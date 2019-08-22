@@ -260,10 +260,10 @@ export const styles = theme => ({
   },
   paper: {
     position: 'absolute',
-    width: 380,
+    width: '375px',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: 7,
+    // padding: 7,
     outline: 'none'
   },
   subtitle: {
