@@ -31,14 +31,15 @@ class BookedTuurs extends Component {
     const { classes } = this.props;
     return (
       <>
-        <GridListTile className={classes.font} key={this.props.booked.mainImage} >
-          <img className={classes.userBookedTuursListItemTile} src={this.props.booked.mainImage} alt={this.props.booked.title} />
+        <GridListTile className={classes.font} key={this.props.booked.mainImage}  >
+          <img className={classes.userBookedTuursListItemTile} src={this.props.booked.mainImage} alt={this.props.booked.title} style={{borderRadius: '10px'}} />
           <GridListTileBar
             title={this.props.booked.title}
             subtitle={<span>{this.props.booked.description}</span>}
             classes={{
               root: classes.titleBar
-            }}
+            }} 
+            style={{borderRadius: '10px'}}
           />
         </GridListTile>
       </>
