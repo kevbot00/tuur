@@ -37,6 +37,9 @@ export const useStyles = makeStyles(theme => ({
   },
   btnColor: {
     color: '#48dbfb'
+  },
+  buttonMargin: {
+    margin: '.35em 0'
   }
 }));
 
@@ -126,10 +129,25 @@ export const styles = theme => ({
     maxWidth: 400,
     marginBottom: theme.spacing(2)
   },
+  card2: {
+    maxWidth: 400,
+    marginBottom: '5px'
+  },
   media: {
     height: 0,
     paddingTop: '56.25%',
     backgroundSize: '100% 100%'
+  },
+  media2: {
+    backgroundSize: '100% 100%',
+    objectFit: 'contain',
+    marginBottom: '5px',
+    backgroundColor: 'white'
+  },
+  media3: {
+    backgroundSize: '100% 100%',
+    objectFit: 'contain',
+    marginBottom: '5px',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -246,8 +264,8 @@ export const styles = theme => ({
   },
   buttonDiv: {
     display: 'inline-block',
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: 15,
+    marginRight: 15
   },
   button: {
     backgroundColor: '#A6C7C8',
@@ -260,10 +278,10 @@ export const styles = theme => ({
   },
   paper: {
     position: 'absolute',
-    width: 380,
+    width: '375px',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: 7,
+    // padding: 7,
     outline: 'none'
   },
   subtitle: {
@@ -281,8 +299,8 @@ export const styles = theme => ({
   },
   textField: {
     backgroundColor: 'white',
-    padding: 5,
-    marginLeft: 5,
+    padding: "5px 0",
+    // marginLeft: 5,
     borderRadius: '7px'
   },
   marginLeft: {
@@ -446,6 +464,10 @@ export const styles = theme => ({
     outline: 'none'
   },
   input: {
+    width: '100%',
+    paddingLeft: '5px'
+  },
+  input2: {
     width: '100%'
   },
   form: {

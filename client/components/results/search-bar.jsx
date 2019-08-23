@@ -15,8 +15,9 @@ import Typography from '@material-ui/core/Typography';
 import MatGeocoder from 'react-mui-mapbox-geocoder';
 import { Link, withRouter } from 'react-router-dom';
 import Mapbox from './mapbox';
-import queryString from'query-string';
+import queryString from 'query-string';
 import { theme, styles } from '../../style-themes';
+import FormControl from '@material-ui/core/FormControl';
 
 
 const categories = [
@@ -47,7 +48,8 @@ class SearchBar extends Component {
       searchParameters: {
         name: '',
         coordinates: []
-      }
+      },
+      open: false
     };
     this.handleToggle = this.handleToggle.bind(this);
     this.modalClose = this.modalClose.bind(this);
@@ -56,6 +58,7 @@ class SearchBar extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleDates = this.handleDates.bind(this);
+    this.openFilter = this.openFilter.bind(this);
 
   }
   handleSelect(result) {
@@ -67,6 +70,7 @@ class SearchBar extends Component {
     });
   }
   handleChange(event) {
+    event.stopPropagation();
     const { value } = event.target;
     this.setState({
       tags: value
@@ -117,33 +121,38 @@ class SearchBar extends Component {
     this.setState({ openModal: false });
   }
 
+  openFilter(evt) {
+    // evt.stopPropagation();
+    this.setState({ open: !this.state.open })
+  }
+
   handleDates() {
     this.props.handleDates(this.state.dates);
   }
 
   handleSearch() {
-    const { searchParameters , tags , dates } = this.state;
+    const { searchParameters, tags, dates } = this.state;
     let startDate, endDate;
-    if ( dates.start ){
-      startDate = this.dateFormatConverter( dates.start );
-      endDate = this.dateFormatConverter( dates.end );
+    if (dates.start) {
+      startDate = this.dateFormatConverter(dates.start);
+      endDate = this.dateFormatConverter(dates.end);
     }
     const filterTags = tags.join('+');
     let dateQueryUrl = '';
     let tagQueryUrl = '';
     let locationQueryUrl = ''
-    if ( !searchParameters.name ){
+    if (!searchParameters.name) {
       let lastQuery = queryString.parse(this.props.history.location.search)
       let coordinates = lastQuery.coordinates.split(' ');
-      locationQueryUrl = `?location=${ lastQuery.location }&coordinates=${ coordinates[0]}+${ coordinates[1] }`
+      locationQueryUrl = `?location=${lastQuery.location}&coordinates=${coordinates[0]}+${coordinates[1]}`
     } else {
-      locationQueryUrl = `?location=${ searchParameters.name }&coordinates=${ searchParameters.coordinates[0]}+${ searchParameters.coordinates[1]}`
+      locationQueryUrl = `?location=${searchParameters.name}&coordinates=${searchParameters.coordinates[0]}+${searchParameters.coordinates[1]}`
     }
 
-    if ( startDate && endDate ){
+    if (startDate && endDate) {
       dateQueryUrl = `&dates=${startDate}+${endDate}`;
     }
-    if ( tags.length ){
+    if (tags.length) {
       tagQueryUrl = `&tags=${filterTags}`;
     }
 
@@ -160,8 +169,8 @@ class SearchBar extends Component {
     // });
   }
 
-  dateFormatConverter( date ){
-    let newDate = new Date( date );
+  dateFormatConverter(date) {
+    let newDate = new Date(date);
     let day = newDate.getDate();
     let month = newDate.getMonth();
     let year = newDate.getFullYear();
@@ -177,9 +186,9 @@ class SearchBar extends Component {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <AppBar position="static" justify="center" color="primary" className={classes.appBar}>
-            <Grid container className={classes.inputContainer} >
-              <Grid item xs={8} className={classes.appBar} >
+          <AppBar position="static" justify="center" color="primary" >
+            <Grid container style={{ marginTop: '10px', paddingRight: '5px' }}>
+              <Grid item xs={9} className={classes.appBar}>
                 <MatGeocoder
                   inputPlaceholder="Where do you want to go?"
                   accessToken={'pk.eyJ1IjoiamVub25nMTkiLCJhIjoiY2p2MzJoZHFoMDIxejQ0czNvYXF2azNnNSJ9.El0sFq0rePnWEbFC4RwVTQ'}
@@ -205,32 +214,33 @@ class SearchBar extends Component {
                   }}
                 />
               </Grid>
-              <Grid item xs={2} className={classes.appBar}>
-                <Button className={classes.marginLeft} type="submit" variant="contained" onClick={this.handleSearch} color="default" style={{ fontSize: '1.1rem', padding: 3 }}>Go</Button>
+              <Grid item xs={3} className={classes.appBar} justify="center" container>
+                <Button type="submit" variant="contained" fullWidth onClick={this.handleSearch} color="default" style={{ fontSize: '1.1rem' }}>Go</Button>
               </Grid>
             </Grid>
 
-            <Grid container className={classes.buttonContainer}>
+            <Grid container>
               <Grid item xs={3} className={classes.buttonDiv}>
                 <Button type="submit" className={classes.button} fullWidth variant="contained" color="secondary" onClick={() => this.setState({ openModal: true })}>Dates</Button>
               </Grid>
 
               <Grid item xs={3}>
-                <Button type="submit" className={classes.button} fullWidth variant="contained" color="secondary">Filter
-                   <Select
-                    className={classes.width}
-                    multiple
-                    value={this.state.tags}
-                    onChange={this.handleChange}
-                  >
-                    {categories.map(name => (
-                      <MenuItem key={name} value={name}>
-                        <Typography className={classes.subtitle} variant="subtitle2" align="left" gutterBottom>
-                          {name}
-                        </Typography>
-                      </MenuItem>
-                    ))}
-                  </Select>
+                <Button type="submit" className={classes.button} fullWidth variant="contained" color="secondary" onClick={this.openFilter}>Filter
+                    <Select
+                      open={this.state.open}
+                      className={classes.width}
+                      multiple
+                      value={this.state.tags}
+                      onChange={this.handleChange}
+                    >
+                      {categories.map(name => (
+                        <MenuItem key={name} value={name}>
+                          <Typography className={classes.subtitle} variant="subtitle2" align="left" gutterBottom>
+                            {name}
+                          </Typography>
+                        </MenuItem>
+                      ))}
+                    </Select>
                 </Button>
               </Grid>
 
@@ -392,4 +402,4 @@ class SearchBar extends Component {
 //   }
 // });
 
-export default withRouter( withStyles(styles)(SearchBar) );
+export default withRouter(withStyles(styles)(SearchBar));

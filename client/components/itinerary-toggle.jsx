@@ -20,7 +20,7 @@ export default function ItineraryToggleButton(props) {
       <FormControlLabel
         control={
           <Switch
-            checked={state.checkedB}
+            checked={state.checked}
             onChange={handleChange('checked')}
             value="checked"
             color="primary"

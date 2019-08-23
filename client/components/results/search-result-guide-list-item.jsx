@@ -32,18 +32,19 @@ class SearchResultGuideItem extends Component {
           <GridListTile 
             className={classes.font} 
             component={Link} 
-            style={{ textDecoration: 'none' }} 
+            style={{ textDecoration: 'none', minWidth: '200px'}} 
             to={{
               pathname: '/user-view-profile/' + this.props.profile.id,
               state: { prevPath: this.props.location }
             }}>
-            <img className={classes.tile} src={this.props.profile.image} alt={this.props.profile.name} />
+            <img className={classes.tile} src={this.props.profile.image} alt={this.props.profile.name} style={{borderRadius: '10px'}}/>
             <GridListTileBar
               title={this.props.profile.name}
               subtitle={<span>{this.props.profile.bio}</span>}
               classes={{
                 root: classes.titleBar
               }}
+              style={{borderRadius: '10px'}}
             />
           </GridListTile>
       </>

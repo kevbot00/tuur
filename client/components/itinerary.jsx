@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import ItineraryToggleButton from './itinerary-toggle';
 import { theme, styles } from '../style-themes';
+import Grid from '@material-ui/core/Grid';
 
 class Itinerary extends Component {
   constructor(props) {
@@ -106,16 +107,20 @@ class Itinerary extends Component {
     const { classes } = this.props;
     return (
       <>
-        <Container className={classes.marginBottomSpacingTwo}>
-          <Typography className={classes.marginTop} variant="h4">
-            Booked Tuurs
-            {
-              currentState
-                ? <ItineraryToggleButton switch={this.handleSwitch} />
-                : null
-            }
-          </Typography>
-        </Container>
+          <Grid container direction='row' justify='space-between' className={classes.marginTop} style={{paddingLeft: '18px', marginBottom: '15px'}}>
+            <Grid item>
+              <Typography variant="h4">
+                Booked Tuurs
+              </Typography>
+            </Grid>
+            <Grid item>
+              {
+                currentState
+                  ? <ItineraryToggleButton switch={this.handleSwitch} />
+                  : null
+              }
+            </Grid>
+          </Grid>
 
         {
           this.state.switch
@@ -134,8 +139,8 @@ class Itinerary extends Component {
         {
           !this.state.loggedIn
             ? <Container style={{ paddingBottom: '80px' }}>
-                <Typography variant="subtitle1">Please login to view your booked packages.</Typography>
-              </Container>
+              <Typography variant="subtitle1">Please login to view your booked packages.</Typography>
+            </Container>
             : null
         }
       </>

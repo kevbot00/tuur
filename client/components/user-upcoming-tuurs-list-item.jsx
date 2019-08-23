@@ -32,13 +32,14 @@ class UpComingTuurItem extends Component {
     return (
       <>
           <GridListTile className={classes.font} key={this.props.package.mainImage}>
-            <img className={classes.userBookedTuursListItemTile} src={this.props.package.mainImage} alt={this.props.package.title} />
+            <img className={classes.userBookedTuursListItemTile} src={this.props.package.mainImage} alt={this.props.package.title} style={{borderRadius: '10px'}} />
             <GridListTileBar
               title={this.props.package.title}
               subtitle={<span>{this.props.package.description}</span>}
               classes={{
                 root: classes.titleBar
-              }}
+              }} 
+              style={{borderRadius: '10px'}}
             />
           </GridListTile>
       </>

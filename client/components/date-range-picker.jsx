@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import { theme, styles } from '../style-themes';
+import { Container } from '@material-ui/core';
 
 // const styles = theme => ({
 //   root: {
@@ -55,47 +56,35 @@ class DateRangePicker extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
+      <div>
         <Grid justify="center" alignItems="center" container>
           <Grid item xs={2} className={classes.paddingRight} onClick={() => this.props.modalClose()}>
             <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
           <Grid item xs={10} className={classes.paddingLeft}>
-            <Typography className={classes.marginTop} variant="h4" gutterBottom>
-            Select dates
+            <Typography variant="h4">
+              Select dates
             </Typography>
           </Grid>
         </Grid>
+
         <InfiniteCalendar
-          width={350}
+          width={375}
           height={400}
           selected={false}
-          onSelect={date => {
-            this.setDate(date);
-          }}
-          disabledDates = {[]}
-          className={classes.marginBottom}
+          onSelect={date => this.setDate(date)}
+          disabledDates={[]}
+          // className={classes.marginBottom}
           Component={CalendarWithRange}
           locale={{
             headerFormat: 'MMM Do'
           }}
         />
-        {/* <InfiniteCalendar
-          width={350}
-          height={300}
-          Component={MultipleDatesCalendar}
-          selected={this.state.dates}
-          onSelect={date => {
-            this.setDate(date);
-          }}
-          disabledDates = {[]}
-          className={classes.marginBottom}
-        /> */}
 
-        <Grid className={classes.marginLeft} justify="center" alignItems="center" container>
-          <Grid item xs={7} >
-            <Button onClick = {this.handleSubmit} type="button" className={classes.margin} fullWidth variant="contained" color="primary">
-              <Typography variant="body1" gutterBottom>Select dates</Typography>
+        <Grid justify="center" alignItems="center" container>
+          <Grid item xs={12} >
+            <Button onClick={this.handleSubmit} type="button" fullWidth variant="contained" color="primary">
+              <Typography variant="body1" className={classes.buttonMargin}>Select dates</Typography>
             </Button>
           </Grid>
         </Grid>

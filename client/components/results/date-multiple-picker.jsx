@@ -102,41 +102,38 @@ class DatePicker extends Component {
     const MultipleDatesCalendar = withMultipleDates(Calendar);
     const { classes } = this.props;
     return (
-      <div className={styles.root}>
+      <div>
         <Grid justify="center" alignItems="center" container>
-          <Grid item xs={2} className={styles.paddingRight} onClick={() => this.props.modalClose()}>
-            <KeyboardArrowLeft className={styles.fontSize} />
+          <Grid item xs={2} className={classes.paddingRight} onClick={() => this.props.modalClose()}>
+            <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
-          <Grid item xs={10} className={styles.paddingLeft}>
-            <Typography className={styles.marginTop} variant="h4" gutterBottom>
+          <Grid item xs={10} className={classes.paddingLeft}>
+            <Typography variant="h4">
               Select dates
             </Typography>
           </Grid>
         </Grid>
 
         <InfiniteCalendar
-          width={350}
-          height={300}
+          width={375}
+          height={400}
           Component={MultipleDatesCalendar}
           selected={this.state.dates}
-          onSelect={date => {
-            this.setDate(date);
-          }}
+          onSelect={date => this.setDate(date)}
           minDate={new Date(this.nextDay())}
           maxDate={this.props.unavailableDates.maxDate}
           disabledDates={(this.props.unavailableDates) ? this.props.unavailableDates.disabledList : null}
-          className={styles.calender}
+        // className={styles.calender}
+        />
 
-          />
-    
-        <Grid className={styles.marginLeft} justify="center" alignItems="center" container>
-          <Grid item xs={7} >
+        <Grid justify="center" alignItems="center" container>
+          <Grid item xs={12} >
             {this.props.unavailableDates.disabledList
               ? <div>
                 <SimpleModal item={item} booking={this.handleBooking} dates={this.state.dates} loggedIn={this.props.item.package.status} />
               </div>
-              : <Button onClick={this.handleSubmit} type="button" className={styles.margin} fullWidth variant="contained" color="primary">
-                <Typography variant="body1" gutterBottom>Select Dates</Typography>
+              : <Button onClick={this.handleSubmit} type="button" fullWidth variant="contained" color="primary">
+                <Typography variant="body1" className={classes.buttonMargin}>Select Dates</Typography>
               </Button>
             }
           </Grid>
