@@ -90,7 +90,7 @@ class UserViewProfile extends Component {
         <Divider className={classes.marginTop} variant="middle" />
         
         <Container className={classes.marginBottomSpacingTwo} >
-          <Typography className={classes.marginTop} /*</Container>style={{ paddingLeft: '16px' }}*/ variant="h4">
+          <Typography className={classes.marginTop} /*</Container>style={{ paddingLeft: '16px' }}*/ variant="h5">
             About
           </Typography>
         </Container>

@@ -223,7 +223,6 @@ class PackageDetails extends Component {
             component="img"
             className={classes.media2}
             src={this.state.cardImg}
-
             height={250}
           />
           <Grid container justify="center" direction="row" style={{ marginBottom: '5px' }}>
@@ -265,7 +264,7 @@ class PackageDetails extends Component {
                   pathname: '/user-view-profile/' + this.state.package.id,
                   state: { prevPath: this.props.location }
                 }}>
-                <Card className={classes.card}>
+                <Card>
                   <Grid container>
                     <Grid item xs={5}>
                       <CardMedia
@@ -274,15 +273,15 @@ class PackageDetails extends Component {
                       />
                     </Grid>
                     <Grid item xs={7}>
-                      <CardContent>
+                      <CardContent style={{paddingBottom: '5px'}}>
                         <Typography variant="body1">Meet your Guide</Typography>
                         <Typography variant="h5">
                           {this.state.package ? this.state.package.name : null}
                         </Typography>
                       </CardContent>
 
-                      <CardContent>
-                        <Typography variant="subtitle1" color="textSecondary" noWrap>
+                      <CardContent style={{paddingTop: '5px'}}>
+                        <Typography variant="subtitle1" color="textSecondary" className='packageDetailCard'>
                           {this.state.package ? this.state.package.bio : null}
                         </Typography>
                       </CardContent>
@@ -295,7 +294,7 @@ class PackageDetails extends Component {
           </CardContent>
 
           <Grid justify="center" container style={{ marginBottom: '100px' }}>
-            <Grid item xs={9} >
+            <Grid item xs={11} >
               <ThemeProvider theme={theme}>
                 <Button type="submit" fullWidth variant="contained" color="primary" onClick={() => this.setState({ openModal: true })}>
                   <Typography variant="body1" className={classes.buttonMargin} gutterBottom>Available Dates</Typography>

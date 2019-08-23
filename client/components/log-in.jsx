@@ -63,12 +63,12 @@ class LogIn extends React.Component {
       .then(res => res.json())
       .then(data => {
         if (data.auth) {
-          this.props.logIn( data );
+          this.props.logIn(data);
         }
       }
       );
   }
-  
+
   render() {
     const { classes } = this.props;
     if (this.state.auth) {
@@ -79,45 +79,45 @@ class LogIn extends React.Component {
       />;
     }
     return (
-    <>
-    <div style = {{ fontSize: 0 }}>
-      {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
-      <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo"/>
-      <img style={{ width: '100%', height: '260px' }} src="images/login-main-image.jpg" alt="mainImage"/>
-    </div>
-      <Grid justify="center" alignItems="center" container>
-        <Typography className={classes.logInMarginTop} variant="h4" gutterBottom>
-        Welcome back
+      <>
+        <div style={{ fontSize: 0 }}>
+          {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
+          <img className={classes.logInImgStyle} src="images/logo2.png" alt="logo" />
+          <img style={{ width: '100%', height: '260px' }} src="images/login-main-image.jpg" alt="mainImage" />
+        </div>
+        <Grid justify="center" alignItems="center" container>
+          <Typography className={classes.logInMarginTop} variant="h4" gutterBottom>
+            Welcome back
         </Typography>
-      </Grid>
-      <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
-        <Grid item xs={10}>
-          <TextField onChange={this.handleInputChange} required fullWidth id="input-email" label="email" name="email" />
         </Grid>
-      </Grid>
+        <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
+          <Grid item xs={10}>
+            <TextField onChange={this.handleInputChange} required fullWidth id="input-email" label="email" name="email" />
+          </Grid>
+        </Grid>
 
-      <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
-        <Grid item xs={8}>
-          <ThemeProvider theme={theme}>
-            <Button type="submit" className={classes.logInMarginTop} onClick={ this.handleSubmit } fullWidth variant="contained" color="primary">
-              <Typography className={classes.buttonMargin} variant="body1" gutterBottom>log in</Typography>
-            </Button>
-          </ThemeProvider>
+        <Grid className={classes.searchMarginBottom} container justify="center" alignItems="flex-end">
+          <Grid item xs={10} className={classes.marginTop}>
+            <ThemeProvider theme={theme}>
+              <Button type="submit" onClick={this.handleSubmit} fullWidth variant="contained" color="primary">
+                <Typography className={classes.buttonMargin} variant="body1" gutterBottom>log in</Typography>
+              </Button>
+            </ThemeProvider>
+          </Grid>
         </Grid>
-      </Grid>
 
-      <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
-        <Grid item xs={7}>
-          <Typography className={classes.margin} variant="button" gutterBottom align="center">
-            Don't have an account? </Typography>
+        <Grid className={classes.logInMarginTop} container justify="center" alignItems="flex-end">
+          <Grid item xs={7}>
+            <Typography className={classes.margin} variant="button" gutterBottom align="center">
+              Don't have an account? </Typography>
+          </Grid>
+          <Grid item xs={3}>
+            <ThemeProvider theme={theme}>
+              <Typography className={classes.logInMarginLeft} color="primary" variant="button" align="center" component={Link} style={{ textDecoration: 'none' }} to={'/sign-up'}>sign up</Typography>
+            </ThemeProvider>
+          </Grid>
         </Grid>
-        <Grid item xs={3}>
-          <ThemeProvider theme={theme}>
-            <Typography className={classes.logInMarginLeft} color="primary" variant="button" align="center" component={Link} style={{ textDecoration: 'none' }} to={'/sign-up'}>sign up</Typography>
-          </ThemeProvider>
-        </Grid>
-      </Grid>
-    </>
+      </>
     );
   }
 }

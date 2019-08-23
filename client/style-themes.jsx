@@ -144,6 +144,11 @@ export const styles = theme => ({
     marginBottom: '5px',
     backgroundColor: 'white'
   },
+  media3: {
+    backgroundSize: '100% 100%',
+    objectFit: 'contain',
+    marginBottom: '5px',
+  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',

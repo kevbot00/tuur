@@ -107,14 +107,11 @@ class Itinerary extends Component {
     const { classes } = this.props;
     return (
       <>
-        {/* <Container className={classes.marginBottomSpacingTwo}> */}
-        {/* <Container> */}
-          <Grid container direction='row' justify='space-between' className={classes.marginTop} style={{paddingLeft: '18px'}}>
+          <Grid container direction='row' justify='space-between' className={classes.marginTop} style={{paddingLeft: '18px', marginBottom: '15px'}}>
             <Grid item>
               <Typography variant="h4">
                 Booked Tuurs
-  
-            </Typography>
+              </Typography>
             </Grid>
             <Grid item>
               {
@@ -123,12 +120,7 @@ class Itinerary extends Component {
                   : null
               }
             </Grid>
-
           </Grid>
-
-
-        {/* </Container> */}
-        {/* </Container> */}
 
         {
           this.state.switch
