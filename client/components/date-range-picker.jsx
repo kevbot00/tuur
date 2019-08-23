@@ -72,9 +72,7 @@ class DateRangePicker extends Component {
           width={375}
           height={400}
           selected={false}
-          onSelect={date => {
-            this.setDate(date);
-          }}
+          onSelect={date => this.setDate(date)}
           disabledDates={[]}
           // className={classes.marginBottom}
           Component={CalendarWithRange}
@@ -83,22 +81,10 @@ class DateRangePicker extends Component {
           }}
         />
 
-        {/* <InfiniteCalendar
-          width={350}
-          height={300}
-          Component={MultipleDatesCalendar}
-          selected={this.state.dates}
-          onSelect={date => {
-            this.setDate(date);
-          }}
-          disabledDates = {[]}
-          className={classes.marginBottom}
-        /> */}
-
         <Grid justify="center" alignItems="center" container>
           <Grid item xs={12} >
             <Button onClick={this.handleSubmit} type="button" fullWidth variant="contained" color="primary">
-              <Typography variant="body1" gutterBottom>Select dates</Typography>
+              <Typography variant="body1" className={classes.buttonMargin}>Select dates</Typography>
             </Button>
           </Grid>
         </Grid>

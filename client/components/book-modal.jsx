@@ -10,6 +10,9 @@ import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { Link } from 'react-router-dom';
 import { theme, useStyles } from '../style-themes';
+import Divider from '@material-ui/core/Divider';
+import LocationOn from '@material-ui/icons/LocationOn';
+import Grid from '@material-ui/core/Grid';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -79,8 +82,8 @@ function SimpleModal(props) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button onClick={props.dates.length ? handleOpen : null} type="button" className={classes.margin} fullWidth variant="contained" color="primary" >
-          <Typography variant="body1" gutterBottom>Book</Typography>
+        <Button onClick={props.dates.length ? handleOpen : null} type="button" fullWidth variant="contained" color="primary" >
+          <Typography variant="body1" className={classes.buttonMargin}>Book</Typography>
         </Button>
 
         <Modal
@@ -96,25 +99,32 @@ function SimpleModal(props) {
             <img src={props.item.mainImage} className={classes.marginBottom} style={{ width: '100%', height: '200px' }} alt={props.item.title} />
             <Typography variant="h6" id="simple-modal-description">
               Your booking has been confirmed!
-              Product detail below:
-              {/* <br /> */}
-              <hr/>
-              {/* <br /> */}
+
+              <Divider style={{ margin: '10px 0' }} variant="middle" />
+
             </Typography>
             <Typography variant="h6" id="simple-modal-description">
               {props.item.title}
             </Typography>
             <Typography variant="subtitle1" id="simple-modal-description">
-              {props.item.location}
+              <LocationOn />
+
+              <a className={classes.link} href={`https://maps.google.com/?q=${props.item.location}`}>{props.item.location}</a>
             </Typography>
-            <Typography className={classes.marginBottom} variant="subtitle1" id="simple-modal-description">
+            <Typography style={{margin: '10px 0 20px'}} variant="subtitle1" id="simple-modal-description">
               Booked for the following dates:
               <br />
               {bookingDates()}
             </Typography>
-            <Button type="button" className={classes.root} fullWidth variant="contained" color="primary" onClick={handleClose}>
-              <Typography variant="body1" gutterBottom>Close</Typography>
-            </Button>
+
+            <Grid alignItems='flex-end' container>
+              <Button type="button" fullWidth variant="contained" color="primary" onClick={handleClose}>
+                <Typography variant="body1" className={classes.buttonMargin} >Close</Typography>
+              </Button>
+
+            </Grid>
+
+
           </div>
         </Modal>
 
@@ -137,14 +147,15 @@ function SimpleModal(props) {
                 <Button className={classes.btnColor} key="undo" style={{ textDecorationLine: 'underline' }} size="medium" component={Link} to={'/login'}>
                   Login
                 </Button>
-                to book ✨</Typography>
+                to book ✨
+              </Typography>
             }
             action={
               <IconButton
                 key="close"
                 aria-label="Close"
                 color="inherit"
-                className={classes.close}
+                className={classes.buttonMargin}
                 onClick={handleSnackbarClose}>
                 <CloseIcon />
               </IconButton>

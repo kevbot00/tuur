@@ -320,9 +320,8 @@ class CreatePackage extends Component {
                 open={this.state.openModal}
                 onClose={() => this.handleModalClose(this.state.dates)}
               >
-                <Grid className={classes.createPackagePaper}>
+                <Grid className={classes.paper}>
                   <DatePicker key={this.state.title} dates={this.state.dates} close={this.handleModalClose} modalClose={this.modalClose} unavailableDates={this.maxDate()} />
-
                 </Grid>
               </Modal>
             </Grid>

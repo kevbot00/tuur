@@ -37,6 +37,9 @@ export const useStyles = makeStyles(theme => ({
   },
   btnColor: {
     color: '#48dbfb'
+  },
+  buttonMargin: {
+    margin: '.35em 0'
   }
 }));
 
@@ -126,10 +129,20 @@ export const styles = theme => ({
     maxWidth: 400,
     marginBottom: theme.spacing(2)
   },
+  card2: {
+    maxWidth: 400,
+    marginBottom: '5px'
+  },
   media: {
     height: 0,
     paddingTop: '56.25%',
     backgroundSize: '100% 100%'
+  },
+  media2: {
+    backgroundSize: '100% 100%',
+    objectFit: 'contain',
+    marginBottom: '5px',
+    backgroundColor: 'white'
   },
   expand: {
     transform: 'rotate(0deg)',

@@ -10,6 +10,7 @@ import { Link, withRouter } from 'react-router-dom';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import Divider from '@material-ui/core/Divider';
 import { theme, styles } from '../style-themes';
+import Card from '@material-ui/core/Card';
 
 
 class UserViewProfile extends Component {
@@ -63,7 +64,7 @@ class UserViewProfile extends Component {
     const { classes } = this.props;
     if (!this.state) return null;
     return (
-      <>
+      <div style={{backgroundColor: 'white', height: '100vh'}}>
         <div className={classes.marginBottom} >
           <Grid item xs={2} name='back' onClick={this.props.history.goBack}>
             <KeyboardArrowLeft className={classes.fontSize} />
@@ -72,7 +73,7 @@ class UserViewProfile extends Component {
 
         <Container className={classes.marginBottomSpacingTwo}>
           <Grid container direction="row">
-            <Grid xs={8}>
+            <Grid item xs={8}>
               <Typography /*style={{ paddingLeft: '16px' }}*/ variant="h4">
                 {this.state.name}
               </Typography>
@@ -100,7 +101,7 @@ class UserViewProfile extends Component {
         <Divider className={classes.marginTop} variant="middle" />
 
         <GuidePackages guideInfo={this.state} />
-      </>
+      </div>
     );
   }
 }

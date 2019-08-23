@@ -173,7 +173,6 @@ class PackageDetails extends Component {
 
   getProfileInfo(guideEmail) {
     fetch(`/api/profile.php?email=${guideEmail}`)
-      // fetch(`/api/profile.php?email=${this.props.location.state.item.profileEmail}`)
       .then(res => res.json())
       .then(response => {
         this.setState({ package: response });
@@ -216,20 +215,23 @@ class PackageDetails extends Component {
     if (!this.state.item) return null;
     return (
       <>
-        <Card className={classes.card}>
-          {/* <Grid item xs={2} className={classes.paddingRight} name='back' onClick={ () => this.props.history.goBack() } > */}
+        <Card >
           <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={prevUrlPathname + prevUrlSearch}>
             <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
           <CardMedia
-            className={classes.media}
-            image={this.state.cardImg}
+            component="img"
+            className={classes.media2}
+            src={this.state.cardImg}
+
+            height={250}
           />
-        </Card>
-        <Grid container justify="center" direction="row">
-          {this.state.images ? carousel : null}
-        </Grid>
-        <Card>
+          <Grid container justify="center" direction="row" style={{ marginBottom: '5px' }}>
+            {this.state.images ? carousel : null}
+          </Grid>
+          {/* </Card>
+
+        <Card> */}
           <CardHeader
             title={this.state.item.title}
           />
@@ -241,6 +243,7 @@ class PackageDetails extends Component {
               </a>
             </Typography>
           </CardContent>
+
           <CardContent>
             <Typography >
               <Alarm /> Trip duration: {this.state.item.timeRange}
@@ -252,6 +255,7 @@ class PackageDetails extends Component {
               {this.state.item.description}
             </Typography>
           </CardContent>
+
           <CardContent>
             {this.state.package
               ? <Grid
@@ -294,7 +298,7 @@ class PackageDetails extends Component {
             <Grid item xs={9} >
               <ThemeProvider theme={theme}>
                 <Button type="submit" fullWidth variant="contained" color="primary" onClick={() => this.setState({ openModal: true })}>
-                  <Typography variant="body1" gutterBottom>Available Dates</Typography>
+                  <Typography variant="body1" className={classes.buttonMargin} gutterBottom>Available Dates</Typography>
                 </Button>
               </ThemeProvider>
             </Grid>
@@ -311,6 +315,7 @@ class PackageDetails extends Component {
                 </Grid>
               </Modal>
             </Grid>
+
           </Grid>
         </Card>
       </>
