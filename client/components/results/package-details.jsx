@@ -185,12 +185,11 @@ class PackageDetails extends Component {
   }
 
   getLastObject(obj, prevObj) {
-    let lastObj = prevObj;
     if (!obj.prevPath.state) {
       return obj;
     }
     if (typeof obj !== 'object') {
-      return lastObj;
+      return prevObj;
     }
     for (let prop in obj) {
       if (obj.prevPath.state) {
