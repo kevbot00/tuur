@@ -92,7 +92,7 @@ function SimpleModal(props) {
           open={open}
           onClose={handleClose}
         >
-          <div style={modalStyle} className={classes.paper}>
+          <div className={classes.paper2}>
             <Typography className={classes.marginBottom} variant="h5" id="modal-title" color="primary" align="center">
               Booking Confirmation
             </Typography>

@@ -12,6 +12,11 @@ if ( isset( $_SESSION['userEmail']) || isset($_SESSION['id']) ){
 }
 
 if ( $method === "POST"){
+  // check if pacakge exists in itinerary
+  // if it is, update date,
+  // else add new item
+
+  
   $output = json_decode( $item , true );
   $pickedDates = json_encode( $output['dates']);
   $query = "INSERT INTO  `booking` (`id`, `tuuristId`, `packageId`, `bookedAt`, `dates`, `tuuristEmail`) 

@@ -4,16 +4,17 @@ import { Link, withRouter, Route } from 'react-router-dom';
 class CityInfo extends PureComponent {
 
   render() {
-    const { info } = this.props;
+    const { info, location } = this.props;
     const displayName = info.title;
     const displayLocation = info.location;
-
+    console.log( this.props );
     return (  
       <div style={{ width: '240px', fontFamily: 'Roboto' }} onClick={() => {
         this.props.history.push({
           pathname: '/package-details/ '+info.id,
           state: {
-            item: info
+            item: info,
+            prevPath: location
           }
         })
       }} 

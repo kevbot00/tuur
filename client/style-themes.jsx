@@ -25,8 +25,18 @@ export const useStyles = makeStyles(theme => ({
   },
   paper: {
     position: 'absolute',
-    width: 325,
+    width: 3,
     height: 300,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2),
+    outline: 'none'
+  },
+  paper2: {
+    height: '75%',
+    width: 330,
+    marginLeft: '6px',
+    marginTop: '5px',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2),
