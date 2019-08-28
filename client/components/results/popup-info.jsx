@@ -7,7 +7,6 @@ class CityInfo extends PureComponent {
     const { info, location } = this.props;
     const displayName = info.title;
     const displayLocation = info.location;
-    console.log( this.props );
     return (  
       <div style={{ width: '240px', fontFamily: 'Roboto' }} onClick={() => {
         this.props.history.push({

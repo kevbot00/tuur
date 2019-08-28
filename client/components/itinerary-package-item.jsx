@@ -62,7 +62,6 @@ class ItineraryItem extends Component {
   }
 
   bookedDate() {
-    console.log( this.props );
     let dateDisplay = '';
     for (let index = 0; index < this.props.item.dates.length; index++) {
       const firstDate = new Date(this.props.item.dates[index]);
@@ -76,7 +75,6 @@ class ItineraryItem extends Component {
         dateDisplay += `, ${day}, ${mm}-${dd}-${yyyy}`;
       }
     }
-    console.log( dateDisplay );
     return dateDisplay;
   }
 
