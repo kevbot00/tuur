@@ -34,7 +34,7 @@
     "material-ui-selectfield": "^1.0.24",
     "moment": "^2.24.0",
     "mui-places-autocomplete": "^2.0.0",
-    "npm": "^6.9.0",
+    "npm": "^6.11.2",
     "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-animated-slider": "^1.1.4",
